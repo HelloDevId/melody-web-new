@@ -99,7 +99,7 @@
                                                 </td>
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->kategori->name }}</td>
-                                                <td>{{ number_format($data->price) }}</td>
+                                                <td>Rp. {{ number_format($data->price) }}</td>
                                                 <td>
                                                     <div class="text-center">
                                                         <button type="button"

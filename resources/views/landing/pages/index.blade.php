@@ -129,7 +129,7 @@
 
                                             <span class="stext-105 cl3">
                                                 Rp. {{ number_format($datanya->price) }} / {{ $datanya->kategori->name }} /
-                                                Jumlah Terjual {{ $datanya->jumlah_terjual }}
+                                                {{ $datanya->jumlah_terjual }} Jumlah
                                             </span>
                                         </div>
 
@@ -192,7 +192,8 @@
                                     </a>
 
                                     <span class="stext-105 cl3">
-                                        Rp. {{ number_format($data->price) }} / {{ $data->kategori->name }}
+                                        Rp. {{ number_format($data->price) }} / {{ $data->kategori->name }} /
+                                        {{ $data->jumlah_terjual }} Terjual
                                     </span>
                                 </div>
 

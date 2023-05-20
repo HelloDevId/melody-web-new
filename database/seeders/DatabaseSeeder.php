@@ -39,6 +39,11 @@ class DatabaseSeeder extends Seeder
             'image' => 'user2.jpeg',
             'email' => 'user@gmail.com',
             'password' => bcrypt('user'),
+            'jenis_kelamin' => 'L',
+            'jenis_kulit' => 'Kering',
+            'tanggal_lahir' => '2000-01-01',
+            'no_hp' => '081234567890',
+            'alamat' => 'Jl. Raya',
             'id_role' => 2,
         ]);
 

@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_presensi', function (Blueprint $table) {
+        Schema::create('tb_post', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['belum', 'sudah']);
-            $table->date('tanggal');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('image');
+            $table->text('content');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_presensi');
+        Schema::dropIfExists('tb_post');
     }
 };

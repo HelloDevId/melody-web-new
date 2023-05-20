@@ -171,7 +171,7 @@ class ProductController extends Controller
         }
     }
 
-    public function restoreberita(){
+    public function restoreproduct(){
         $product = Product::onlyTrashed()->get();
         return view('admin.pages.product-terhapus',[
             'product' => $product,

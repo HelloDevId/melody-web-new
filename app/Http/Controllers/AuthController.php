@@ -36,7 +36,7 @@ class AuthController extends Controller
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
 
-                return redirect()->intended('/product')->with('loginberhasil', 'login berhasil');
+                return redirect()->intended('/dashboard')->with('loginberhasil', 'login berhasil');
             } else {
                 return redirect()->intended('/login')->with('loginerror', 'login error');
             }

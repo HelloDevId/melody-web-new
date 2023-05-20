@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +64,9 @@ Route::post('/post-force-delete', [PostController::class, 'deletepost'])->middle
 Route::get('/', [ProductController::class, 'indexlanding']);
 Route::get('/index', [ProductController::class, 'indexlanding']);
 Route::get('/detail-product/{id}', [ProductController::class, 'detailproduct']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsLogin');
+
 
 
 

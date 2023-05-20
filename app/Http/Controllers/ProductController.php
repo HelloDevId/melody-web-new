@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Product;
+use App\Models\Visitors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -20,7 +21,17 @@ class ProductController extends Controller
         ]);
     }
 
-    public function indexlanding(){
+    public function indexlanding(Request $request){
+
+        $ip = $request->ip();
+        $browser = $request->header('User-Agent');
+
+        Visitors::create([
+            'ip_address' => $ip,
+            'browser' => $browser,
+            
+        ]);
+
 
     $datakategori = Kategori::all();
 

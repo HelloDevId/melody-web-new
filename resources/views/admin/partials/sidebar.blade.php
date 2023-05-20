@@ -15,6 +15,11 @@
                  </ul>
              </li> --}}
              <li>
+                 <a href="/dashboard" aria-expanded="false">
+                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                 </a>
+             </li>
+             <li>
                  <a href="/product" aria-expanded="false">
                      <i class="icon-notebook menu-icon"></i><span class="nav-text">Product</span>
                  </a>

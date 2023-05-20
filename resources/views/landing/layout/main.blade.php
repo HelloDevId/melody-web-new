@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home 03</title>
+    <title>@yield('title') - Coza Store</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -171,7 +171,7 @@
     </script>
     <!--===============================================================================================-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="{{ asset('landing/js/map-custom.js') }}"></script>
+    <script src="{{ asset('landing/js/map-custom.js') }}"></script>
     <script src="{{ asset('landing/js/main.js') }}"></script>
     @yield('scripts')
 

@@ -59,6 +59,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'product1.jpg',
             'price' => 100000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 100,
             'id_kategori' => 1,
         ]);
 
@@ -67,7 +68,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product2.jpg',
             'price' => 200000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 200,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -75,7 +78,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product3.jpg',
             'price' => 300000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 300,
             'id_kategori' => 3,
+           
         ]);
 
         Product::create([
@@ -83,7 +88,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product4.jpg',
             'price' => 400000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 400,
             'id_kategori' => 1,
+            
         ]);
 
         Product::create([
@@ -91,7 +98,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product5.jpg',
             'price' => 500000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 500,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -99,7 +108,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product6.jpg',
             'price' => 600000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 600,
             'id_kategori' => 3,
+           
         ]);
 
         Product::create([
@@ -107,7 +118,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product7.jpg',
             'price' => 700000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 700,
             'id_kategori' => 1,
+           
         ]);
 
         Product::create([
@@ -115,7 +128,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product8.jpg',
             'price' => 800000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 800,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -123,7 +138,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product9.jpg',
             'price' => 900000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 900,
             'id_kategori' => 3,
+
         ]);
 
         Product::create([
@@ -131,7 +148,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product10.jpg',
             'price' => 1000000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1000,
             'id_kategori' => 1,
+            
         ]);
 
         Product::create([
@@ -139,7 +158,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product11.jpg',
             'price' => 1100000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1100,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -147,7 +168,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product12.jpg',
             'price' => 1200000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1200,
             'id_kategori' => 3,
+            
         ]);
 
         Product::create([
@@ -155,7 +178,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product13.jpg',
             'price' => 1300000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1300,
             'id_kategori' => 1,
+           
         ]);
 
         Product::create([
@@ -163,7 +188,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product14.jpg',
             'price' => 1400000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1400,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -171,6 +198,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'product15.jpg',
             'price' => 1500000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1500,
             'id_kategori' => 3,
         ]);
 
@@ -179,7 +207,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product16.jpg',
             'price' => 1600000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1600,
             'id_kategori' => 1,
+            
         ]);
 
         Product::create([
@@ -187,7 +217,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product17.jpg',
             'price' => 1700000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1700,
             'id_kategori' => 2,
+            
         ]);
 
         Product::create([
@@ -195,7 +227,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product18.jpg',
             'price' => 1800000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1800,
             'id_kategori' => 3,
+            
         ]);
 
         Product::create([
@@ -203,7 +237,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product19.jpg',
             'price' => 1900000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 1900,
             'id_kategori' => 1,
+            
         ]);
 
         Product::create([
@@ -211,7 +247,9 @@ class DatabaseSeeder extends Seeder
             'image' => 'product20.jpg',
             'price' => 2000000,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'jumlah_terjual' => 2000,
             'id_kategori' => 2,
+           
         ]);
     }
 }

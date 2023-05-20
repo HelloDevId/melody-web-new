@@ -16,6 +16,7 @@ class Product extends Model
         'price',
         'description',
         'id_kategori',
+        'jumlah_terjual',
         'deleted_at',
 
     ];

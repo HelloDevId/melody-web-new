@@ -21,9 +21,19 @@ class ProductController extends Controller
     }
 
     public function indexlanding(){
+
+    $datakategori = Kategori::all();
+
+    foreach($datakategori as $kategori){
+        $topproduct = Product::with('kategori')->where('id_kategori', $kategori->id)->orderBy('jumlah_terjual', 'desc')->limit(5)->get();
+    }
+
         $product = Product::with('kategori')->paginate(16);
         return view('landing.pages.index',[
             'product' => $product,
+            'datakategori' => $datakategori,
+            'topproduct' => $topproduct,
+            
         ]);
     }
 

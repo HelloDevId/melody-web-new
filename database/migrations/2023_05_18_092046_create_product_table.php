@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->longText('description');
             $table->string('price');
+            $table->string('jumlah_terjual');
             $table->softDeletes();
             $table->timestamps();
         });

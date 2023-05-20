@@ -134,23 +134,48 @@
                                                         <div class="modal-body">
                                                             <form>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Tag</label>
+                                                                    <label class="col-sm-2 col-form-label">No Hp</label>
                                                                     <div class="col-sm-10">
-                                                                        <input type="text" value="{{ $data->tag }}"
-                                                                            class="form-control" placeholder="Tag">
+                                                                        <input type="text" value="{{ $data->no_hp }}"
+                                                                            class="form-control"
+                                                                            placeholder="Masukkan No Hp">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Desc</label>
+                                                                    <label class="col-sm-2 col-form-label">Jenis
+                                                                        Kelamin</label>
                                                                     <div class="col-sm-10">
-                                                                        <textarea class="form-control" cols="30" rows="5">{{ $data->desc }}</textarea>
+                                                                        <input type="text"
+                                                                            value="@if ($data->jenis_kelamin == 'L') Laki-Laki @else Perempuan @endif"
+                                                                            class="form-control" placeholder="Tag">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Address</label>
+                                                                    <label class="col-sm-2 col-form-label">Jenis
+                                                                        Kulit</label>
                                                                     <div class="col-sm-10">
-                                                                        <textarea class="form-control" cols="30" rows="5">{{ $data->address }}</textarea>
+                                                                        <input type="text"
+                                                                            value="{{ $data->jenis_kulit }}"
+                                                                            class="form-control" placeholder="Tag">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Tanggal
+                                                                        Lahir</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="date"
+                                                                            value="{{ $data->tanggal_lahir }}"
+                                                                            class="form-control"
+                                                                            placeholder="Masukkan Password">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Alamat</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control" cols="30" rows="5">{{ $data->alamat }}</textarea>
                                                                     </div>
                                                                 </div>
 
@@ -235,19 +260,78 @@
                                                                             placeholder="Masukkan Email">
                                                                     </div>
                                                                 </div>
-                                                                {{-- <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Desc</label>
-                                                            <div class="col-sm-10">
-                                                                <textarea name="desc" class="form-control" cols="30" rows="5">{{ $data->desc }}</textarea>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Address</label>
-                                                            <div class="col-sm-10">
-                                                                <textarea name="address" class="form-control" cols="30" rows="5">{{ $data->address }}</textarea>
-                                                            </div>
-                                                        </div> --}}
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">No Hp</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" name="no_hp"
+                                                                            value="{{ $data->no_hp }}"
+                                                                            class="form-control"
+                                                                            placeholder="Masukkan No Hp">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Jenis
+                                                                        Kelamin</label>
+                                                                    <div class="col-sm-10">
+                                                                        <select name="jenis_kelamin" class="form-control">
+                                                                            <option value="">-- Pilih Jenis Kelamin
+                                                                                --</option>
+                                                                            <option value="L"
+                                                                                @if ($data->jenis_kelamin == 'L') selected @endif>
+                                                                                Laki-Laki</option>
+                                                                            <option value="P"
+                                                                                @if ($data->jenis_kelamin == 'P') selected @endif>
+                                                                                Perempuan</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Jenis
+                                                                        Kulit</label>
+                                                                    <div class="col-sm-10">
+                                                                        <select name="jenis_kulit" class="form-control">
+                                                                            <option value="">-- Pilih Jenis Kulit --
+                                                                            </option>
+                                                                            <option value="Kering"
+                                                                                @if ($data->jenis_kulit == 'Kering') selected @endif>
+                                                                                Kering</option>
+                                                                            <option value="Berminyak"
+                                                                                @if ($data->jenis_kulit == 'Berminyak') selected @endif>
+                                                                                Berminyak</option>
+                                                                            <option value="Normal"
+                                                                                @if ($data->jenis_kulit == 'Normal') selected @endif>
+                                                                                Normal</option>
+                                                                            <option value="Kombinasi"
+                                                                                @if ($data->jenis_kulit == 'Kombinasi') selected @endif>
+                                                                                Kombinasi</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Alamat</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control" name="alamat" cols="30" rows="5">{{ $data->alamat }}</textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Tanggal
+                                                                        Lahir</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="date" name="tanggal_lahir"
+                                                                            value="{{ $data->tanggal_lahir }}"
+                                                                            class="form-control"
+                                                                            placeholder="Masukkan Password">
+                                                                    </div>
+                                                                </div>
+
+
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Password</label>
                                                                     <div class="col-sm-10">
@@ -319,19 +403,59 @@
                                                         placeholder="Masukkan Email">
                                                 </div>
                                             </div>
-                                            {{-- <div class="form-group row">
-                                                        <label class="col-sm-2 col-form-label">Desc</label>
-                                                        <div class="col-sm-10">
-                                                            <textarea name="desc" class="form-control" cols="30" rows="5"></textarea>
-                                                        </div>
-                                                    </div>
-    
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-2 col-form-label">Address</label>
-                                                        <div class="col-sm-10">
-                                                            <textarea name="address" class="form-control" cols="30" rows="5"></textarea>
-                                                        </div>
-                                                    </div> --}}
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">No Hp</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="no_hp" value=""
+                                                        class="form-control" placeholder="Masukkan No Hp">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Jenis
+                                                    Kelamin</label>
+                                                <div class="col-sm-10">
+                                                    <select name="jenis_kelamin" class="form-control">
+                                                        <option value="">-- Pilih Jenis Kelamin--</option>
+                                                        <option value="L">Laki-Laki</option>
+                                                        <option value="P">Perempuan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Jenis
+                                                    Kulit</label>
+                                                <div class="col-sm-10">
+                                                    <select name="jenis_kulit" class="form-control">
+                                                        <option value="">-- Pilih Jenis Kulit --</option>
+                                                        <option value="Kering">Kering</option>
+                                                        <option value="Berminyak">Berminyak</option>
+                                                        <option value="Normal">Normal</option>
+                                                        <option value="Kombinasi">Kombinasi</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Alamat</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="alamat" cols="30" rows="5"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Tanggal
+                                                    Lahir</label>
+                                                <div class="col-sm-10">
+                                                    <input type="date" name="tanggal_lahir" value=""
+                                                        class="form-control" placeholder="Masukkan Password">
+                                                </div>
+                                            </div>
+
+
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Password</label>
                                                 <div class="col-sm-10">

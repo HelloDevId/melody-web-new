@@ -75,6 +75,7 @@
                                             <th>Name</th>
                                             <th>Kategori</th>
                                             <th>Price</th>
+                                            <th>Terjual</th>
                                             <th>Action</th>
                                             <th>Pulihkan</th>
                                         </tr>
@@ -95,7 +96,8 @@
                                                 </td>
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->kategori->name }}</td>
-                                                <td>{{ $data->price }}</td>
+                                                <td>Rp. {{ number_format($data->price) }}</td>
+                                                <td>{{ $data->jumlah_terjual }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-square btn-outline-primary"
                                                         href="/product-pulihkan/{{ $data->id }}">Pulihkan</a>

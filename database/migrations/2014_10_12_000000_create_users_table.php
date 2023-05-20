@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
-            $table->enum('jenis_kulit', ['Kering', 'Berminyak', 'Kombinasi'])->nullable();
+            $table->enum('jenis_kulit', ['Kering', 'Berminyak', 'Kombinasi', 'Normal'])->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('alamat')->nullable();

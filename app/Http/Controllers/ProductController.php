@@ -56,6 +56,7 @@ class ProductController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'harga' => 'required',
             'deskripsi' => 'required',
+            'jumlah_terjual' => 'required',
             'id_kategori' => 'required',
         ],
         [
@@ -65,6 +66,7 @@ class ProductController extends Controller
             'image.max' => 'Foto maksimal 2MB',
             'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
             'price.required' => 'Harga tidak boleh kosong',
+            'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
             'description.required' => 'Deskripsi tidak boleh kosong',
             'id_kategori.required' => 'Kategori tidak boleh kosong',
         ]);
@@ -76,6 +78,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->image = $fileNameImage;
         $product->price = $request->harga;
+        $product->jumlah_terjual = $request->jumlah_terjual;
         $product->description = $request->deskripsi;
         $product->id_kategori = $request->id_kategori;
         $product->save();
@@ -92,6 +95,7 @@ class ProductController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'harga' => 'required',
                 'deskripsi' => 'required',
+                'jumlah_terjual' => 'required',
                 'id_kategori' => 'required',
             ],
             [
@@ -101,6 +105,7 @@ class ProductController extends Controller
                 'image.max' => 'Foto maksimal 2MB',
                 'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
                 'price.required' => 'Harga tidak boleh kosong',
+                'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
                 'description.required' => 'Deskripsi tidak boleh kosong',
                 'id_kategori.required' => 'Kategori tidak boleh kosong',
             ]);
@@ -115,6 +120,7 @@ class ProductController extends Controller
             $product->name = $request->name;
             $product->image = $fileNameImage;
             $product->price = $request->harga;
+            $product->jumlah_terjual = $request->jumlah_terjual;
             $product->description = $request->deskripsi;
             $product->id_kategori = $request->id_kategori;
             $product->save();
@@ -124,12 +130,14 @@ class ProductController extends Controller
             $request->validate([
                 'name' => 'required',
                 'harga' => 'required',
+                'jumlah_terjual' => 'required',
                 'deskripsi' => 'required',
                 'id_kategori' => 'required',
             ],
             [
                 'name.required' => 'Nama tidak boleh kosong',
                 'price.required' => 'Harga tidak boleh kosong',
+                'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
                 'description.required' => 'Deskripsi tidak boleh kosong',
                 'id_kategori.required' => 'Kategori tidak boleh kosong',
             ]);
@@ -138,6 +146,7 @@ class ProductController extends Controller
             $product = Product::find($id);
             $product->name = $request->name;
             $product->price = $request->harga;
+            $product->jumlah_terjual = $request->jumlah_terjual;
             $product->description = $request->deskripsi;
             $product->id_kategori = $request->id_kategori;
             $product->save();

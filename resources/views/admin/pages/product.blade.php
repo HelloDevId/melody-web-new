@@ -60,9 +60,9 @@
 
 
                                     <?php
-
+                                    
                                     $nomer = 1;
-
+                                    
                                     ?>
 
                                     @foreach ($errors->all() as $error)
@@ -79,15 +79,16 @@
                                             <th>Name</th>
                                             <th>Kategori</th>
                                             <th>Price</th>
+                                            <th>Terjual</th>
                                             <th>Action</th>
                                             <th>Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-
+                                        
                                         $no = 1;
-
+                                        
                                         ?>
                                         @foreach ($product as $data)
                                             <tr>
@@ -100,6 +101,7 @@
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->kategori->name }}</td>
                                                 <td>Rp. {{ number_format($data->price) }}</td>
+                                                <td>{{ $data->jumlah_terjual }}</td>
                                                 <td>
                                                     <div class="text-center">
                                                         <button type="button"
@@ -196,6 +198,17 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Jumlah
+                                                                        Terjual</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" name="jumlah_terjual"
+                                                                            value="{{ $data->jumlah_terjual }}"
+                                                                            class="form-control"
+                                                                            placeholder="Masukkan Jumlah Terjual">
+                                                                    </div>
+                                                                </div>
+
 
                                                                 <div class="form-group row">
                                                                     <label
@@ -206,7 +219,7 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Author</label>
+                                                                    <label class="col-sm-2 col-form-label">Kategori</label>
                                                                     <div class="col-sm-10">
                                                                         <select name="id_kategori" class="form-control"
                                                                             id="single-select{{ $data->id }}">
@@ -278,6 +291,14 @@
                                                 </div>
                                             </div>
 
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Jumlah Terjual</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="jumlah_terjual" value=""
+                                                        class="form-control" placeholder="Masukkan Jumlah Terjual">
+                                                </div>
+                                            </div>
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Deskripsi</label>

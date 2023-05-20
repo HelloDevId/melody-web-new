@@ -61,9 +61,9 @@
                                             <td>{{ $data->name }}</td>
                                             <td>
                                                 <div class="text-center">
-                                                    <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
+                                                    {{-- <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#detailModal{{ $data->id }}"><i
-                                                            class="icon-eye menu-icon"></i></button>
+                                                            class="icon-eye menu-icon"></i></button> --}}
                                                     <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#editModal{{ $data->id }}">
                                                         <i
@@ -163,8 +163,8 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="name" value=""
-                                                        class="form-control" placeholder="Masukkan Nama">
+                                                    <input type="text" name="name" value="" class="form-control"
+                                                        placeholder="Masukkan Nama">
                                                 </div>
                                             </div>
                                         </div>

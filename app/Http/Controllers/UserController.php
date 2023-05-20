@@ -26,8 +26,14 @@ class UserController extends Controller
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
             'email' => 'required|unique:tb_user,email',
+            'jenis_kelamin' => 'required',
+            'jenis_kulit' => 'required',
+            'tanggal_lahir' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
             'password' => 'required',
             'repassword' => 'required|same:password',
+
         ],
         [
             'name.required' => 'Nama tidak boleh kosong',
@@ -37,6 +43,11 @@ class UserController extends Controller
             'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
             'email.required' => 'Email tidak boleh kosong',
             'email.unique' => 'Email sudah terdaftar',
+            'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
+            'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+            'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
+            'no_hp.required' => 'No HP tidak boleh kosong',
+            'alamat.required' => 'Alamat tidak boleh kosong',
             'password.required' => 'Password tidak boleh kosong',
             'repassword.required' => 'Re-Password tidak boleh kosong',
             'repassword.same' => 'Re-Password tidak sama dengan Password',
@@ -49,6 +60,11 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->image = $fileNameImage;
         $user->email = $request->email;
+        $user->jenis_kelamin = $request->jenis_kelamin;
+        $user->jenis_kulit = $request->jenis_kulit;
+        $user->tanggal_lahir = $request->tanggal_lahir;
+        $user->no_hp = $request->no_hp;
+        $user->alamat = $request->alamat;
         $user->id_role = '2';
         $user->password = bcrypt($request->password);
         $user->save();
@@ -64,6 +80,11 @@ class UserController extends Controller
                 'name' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
                 'email' => 'required|unique:tb_user,email,'.$id,
+                'jenis_kelamin' => 'required',
+                'jenis_kulit' => 'required',
+                'tanggal_lahir' => 'required',
+                'no_hp' => 'required',
+                'alamat' => 'required',
                 'password' => 'required',
                 'repassword' => 'required|same:password',
             ],
@@ -77,6 +98,13 @@ class UserController extends Controller
                 'image.max' => 'Foto maksimal 2MB',
                 'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
                 'email.required' => 'Email tidak boleh kosong',
+                'email.unique' => 'Email sudah terdaftar',
+                'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
+                'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+                'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
+                'no_hp.required' => 'No HP tidak boleh kosong',
+                'alamat.required' => 'Alamat tidak boleh kosong',
+
             ]);
 
             $deleteimage = User::where('id', $id)->first();
@@ -89,6 +117,11 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->image = $fileNameImage;
             $user->email = $request->email;
+            $user->jenis_kelamin = $request->jenis_kelamin;
+            $user->jenis_kulit = $request->jenis_kulit;
+            $user->tanggal_lahir = $request->tanggal_lahir;
+            $user->no_hp = $request->no_hp;
+            $user->alamat = $request->alamat;
             $user->password = bcrypt($request->password);
             $user->save();
 
@@ -97,6 +130,11 @@ class UserController extends Controller
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|unique:tb_user,email,'.$id,
+                'jenis_kelamin' => 'required',
+                'jenis_kulit' => 'required',
+                'tanggal_lahir' => 'required',
+                'no_hp' => 'required',
+                'alamat' => 'required',
                 'password' => 'required',
                 'repassword' => 'required|same:password',
             ],
@@ -106,11 +144,23 @@ class UserController extends Controller
                 'repassword.required' => 'Re-Password tidak boleh kosong',
                 'repassword.same' => 'Re-Password tidak sama dengan Password',
                 'email.required' => 'Email tidak boleh kosong',
+                'email.unique' => 'Email sudah terdaftar',
+                'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
+                'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+                'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
+                'no_hp.required' => 'No HP tidak boleh kosong',
+                'alamat.required' => 'Alamat tidak boleh kosong',
+
             ]);
 
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->jenis_kelamin = $request->jenis_kelamin;
+            $user->jenis_kulit = $request->jenis_kulit;
+            $user->tanggal_lahir = $request->tanggal_lahir;
+            $user->no_hp = $request->no_hp;
+            $user->alamat = $request->alamat;
             $user->password = bcrypt($request->password);
             $user->save();
 

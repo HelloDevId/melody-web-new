@@ -18,6 +18,11 @@ class User extends Authenticatable
         'image',
         'email',
         'password',
+        'jenis_kelamin',
+        'jenis_kulit',
+        'tanggal_lahir',
+        'no_hp',
+        'alamat',
         'id_role',
         'deleted_at'
     ];

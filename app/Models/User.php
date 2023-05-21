@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Role;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +32,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');
     }
-
+    public function post()
+    {
+        return $this->hasOne(Post::class);
+    }
 
 }

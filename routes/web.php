@@ -60,6 +60,9 @@ Route::get('/post-restore', [PostController::class, 'restorepost'])->middleware(
 route::get('/post-pulihkan/{id}', [PostController::class, 'restore'])->middleware('IsLogin');
 Route::post('/post-force-delete', [PostController::class, 'deletepost'])->middleware('IsLogin');
 
+Route::get('/blog', [PostController::class, 'indexlanding']);
+Route::get('/detail-blog/{id}', [PostController::class, 'detailpost']);
+
 
 Route::get('/', [ProductController::class, 'indexlanding']);
 Route::get('/index', [ProductController::class, 'indexlanding']);

@@ -48,17 +48,9 @@
 
     @include('landing.partials.header')
 
-
-
     <!-- Sidebar -->
 
-    @include('landing.partials.sidebar')
-
-
     @yield('content')
-
-
-
 
     <!-- Footer -->
 

@@ -95,7 +95,6 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->intended('/product')->with('create', 'berhasil create');
-
     }
 
     public function update(Request $request, $id){

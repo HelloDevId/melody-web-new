@@ -20,7 +20,7 @@ class IsStay
     {
 
         if (Auth::check()) {
-            return redirect('/product')->with('sudahlogin', 'anda sudah login');
+            return redirect('/dashboard')->with('sudahlogin', 'anda sudah login');
         } else {
             return $next($request);
         }

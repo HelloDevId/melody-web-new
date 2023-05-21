@@ -8,26 +8,18 @@ use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
-    public function index() {
-        $posts = Post::all();
-        
-        return view('admin.pages.post', [
-            'post' => $posts
-        ]);
-    }
-
     public function indexlanding() {
-        $posts = Post::all();
+        $posts = Post::with('user')->latest()->paginate(5);
 
-        return view('landing.pages.index', [
+        return view('landing.pages.blog', [
             'post' => $posts
         ]);
     }
 
     public function detailpost($id) {
-        $post = Post::where('id', $id)->first();
+        $post = Post::with('user')->where('id', $id)->firstOrFail();
 
-        return view('landing.pages.detail-post', [
+        return view('landing.pages.detail-blog', [
             'post' => $post
         ]);
     }
@@ -56,16 +48,8 @@ class PostController extends Controller
             'title' => $request->title,
             'slug' => $request->slug,
             'image' => $imageName,
-            'content' => $request->content
-        ],[
-            'title.required' => 'judul harus diisi',
-            'slug.required' => 'slug harus diisi',
-            'image.required' => 'gambar harus diisi',
-            'image.image' => 'gambar harus berupa gambar',
-            'image.mimes' => 'gambar harus berupa jpeg, png, jpg, gif, svg',
-            'image.max' => 'gambar maksimal 2048kb',
-            'content.required' => 'konten harus diisi'
-        
+            'content' => $request->content,
+            'id_user' => '1',
         ]);
 
         return redirect()->intended('/post')->with('create', 'berhasil create');
@@ -102,6 +86,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->content = $request->content;
+        $post->id_user = '1';
         $post->save();
 
         return redirect()->intended('/post')->with('update', 'berhasil update');

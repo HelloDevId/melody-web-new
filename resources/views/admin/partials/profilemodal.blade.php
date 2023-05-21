@@ -6,42 +6,39 @@
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                 </button>
             </div>
-            <form action="/profil-update/{{ Auth::User()->id }}" method="post">
+            <form action="/profil-update/{{ Auth::User()->id }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    {{-- <div class="text-center">
-                        <img src="" class="rounded-circle" alt="..." height="200">
-                    </div> --}}
-                    <div class="form-group">
-                        <label for="">Name</label>
-                        <input type="text" name="name" value="{{ Auth::User()->name }}"
-                            class="form-control input-rounded" placeholder="Input Rounded">
+                    <div class="text-center">
+                        <img src="{{ asset('foto/user/' . Auth::User()->image) }}" class="rounded-circle" alt="..."
+                            height="150">
                     </div>
                     <div class="form-group">
-                        <label for="">Username</label>
-                        <input type="text" name="username" value="{{ Auth::User()->username }}"
-                            class="form-control input-rounded" placeholder="Input Rounded">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input name="image" class="form-control" id="formFileSm" type="file">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" name="name" value="{{ Auth::User()->name }}" class="form-control"
+                            placeholder="Input Rounded">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" name="email" value="{{ Auth::User()->email }}"
-                            class="form-control input-rounded" placeholder="Input Rounded">
+                        <input type="email" name="email" value="{{ Auth::User()->email }}" class="form-control"
+                            placeholder="Input Rounded">
                     </div>
                     <div class="form-group">
                         <label for="">Old Password</label>
-                        <input type="password" name="oldpassword" class="form-control input-rounded"
-                            placeholder="Input Rounded">
+                        <input type="password" name="oldpassword" class="form-control" placeholder="Input Rounded">
                     </div>
                     <div class="form-group">
                         <label for="">New Password</label>
-                        <input type="password" name="password" class="form-control input-rounded"
-                            placeholder="Input Rounded">
+                        <input type="password" name="password" class="form-control" placeholder="Input Rounded">
                     </div>
                     <div class="form-group">
                         <label for="">Re New Password</label>
-                        <input type="password" name="repassword" class="form-control input-rounded"
-                            placeholder="Input Rounded">
+                        <input type="password" name="repassword" class="form-control" placeholder="Input Rounded">
                     </div>
                 </div>
                 <div class="modal-footer">

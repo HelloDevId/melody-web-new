@@ -25,6 +25,7 @@ use App\Http\Controllers\PostController;
 Route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
+Route::put('/profil-update/{id}', [AuthController::class, 'profilupdate'])->middleware('IsLogin');
 
 Route::get('/product', [ProductController::class, 'index'])->middleware('IsLogin');
 Route::post('/product-add', [ProductController::class, 'store'])->middleware('IsLogin');
@@ -69,7 +70,3 @@ Route::get('/index', [ProductController::class, 'indexlanding']);
 Route::get('/detail-product/{id}', [ProductController::class, 'detailproduct']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsLogin');
-
-
-
-

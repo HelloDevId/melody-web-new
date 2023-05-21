@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
-    public function indexlanding() {
+    public function indexlanding()
+    {
         $posts = Post::with('user')->latest()->paginate(5);
 
         return view('landing.pages.blog', [
@@ -16,7 +17,17 @@ class PostController extends Controller
         ]);
     }
 
-    public function detailpost($id) {
+    public function index()
+    {
+        $posts = Post::with('user')->get();
+
+        return view('admin.pages.post', [
+            'post' => $posts
+        ]);
+    }
+
+    public function detailpost($id)
+    {
         $post = Post::with('user')->where('id', $id)->firstOrFail();
 
         return view('landing.pages.detail-blog', [
@@ -24,24 +35,25 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'content' => 'required'
         ], [
-            'title.required' => 'judul harus diisi',
-            'slug.required' => 'slug harus diisi',
-            'image.required' => 'gambar harus diisi',
-            'image.image' => 'gambar harus berupa gambar',
-            'image.mimes' => 'gambar harus berupa jpeg, png, jpg, gif, svg',
-            'image.max' => 'gambar maksimal 2048kb',
-            'content.required' => 'konten harus diisi'
-        
-        ]);
+                'title.required' => 'judul harus diisi',
+                'slug.required' => 'slug harus diisi',
+                'image.required' => 'gambar harus diisi',
+                'image.image' => 'gambar harus berupa gambar',
+                'image.mimes' => 'gambar harus berupa jpeg, png, jpg, gif, svg',
+                'image.max' => 'gambar maksimal 2048kb',
+                'content.required' => 'konten harus diisi'
 
-        $imageName = time().'.'.$request->image->extension();
+            ]);
+
+        $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('foto/post/'), $imageName);
 
         Post::create([
@@ -55,30 +67,31 @@ class PostController extends Controller
         return redirect()->intended('/post')->with('create', 'berhasil create');
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'content' => 'required'
-        ],[
-            'title.required' => 'judul harus diisi',
-            'slug.required' => 'slug harus diisi',
-            'image.required' => 'gambar harus diisi',
-            'content.required' => 'konten harus diisi'
-        
-        
-        ]);
+        ], [
+                'title.required' => 'judul harus diisi',
+                'slug.required' => 'slug harus diisi',
+                'image.required' => 'gambar harus diisi',
+                'content.required' => 'konten harus diisi'
+
+
+            ]);
 
         $post = Post::where('id', $id)->first();
 
         if ($request->image) {
 
-            $deleteimg = public_path('foto/post/').$post->image;
+            $deleteimg = public_path('foto/post/') . $post->image;
             File::delete($deleteimg);
 
 
-            $imageName = time().'.'.$request->image->extension();
+            $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('foto/post/'), $imageName);
             $post->image = $imageName;
         }
@@ -92,31 +105,34 @@ class PostController extends Controller
         return redirect()->intended('/post')->with('update', 'berhasil update');
     }
 
-    public function destroy(Request $request){
-        
+    public function destroy(Request $request)
+    {
+
         $ids = $request->ids;
 
-        if($ids != null){
+        if ($ids != null) {
 
             $product = Post::whereIn('id', $ids);
             $product->delete();
 
-            if($product){
+            if ($product) {
                 return redirect()->intended('/post')->with('delete', 'berhasil dihapus');
             }
-        }else{
+        } else {
             return redirect()->intended('/post')->with('faildel', 'gagal dihapus');
         }
     }
 
-    public function restorepost(){
+    public function restorepost()
+    {
         $post = Post::onlyTrashed()->get();
-        return view('admin.pages.post-terhapus',[
+        return view('admin.pages.post-terhapus', [
             'post' => $post,
         ]);
     }
 
-    public function restore($id){
+    public function restore($id)
+    {
         $post = Post::onlyTrashed()->where('id', $id);
         $post->restore();
 
@@ -124,12 +140,13 @@ class PostController extends Controller
 
     }
 
-    public function deletepost(Request $request){
+    public function deletepost(Request $request)
+    {
         $ids = $request->ids;
-        if($ids != null){
+        if ($ids != null) {
 
             $imgedelete = Post::onlyTrashed()->whereIn('id', $ids)->get();
-            foreach($imgedelete as $img){
+            foreach ($imgedelete as $img) {
                 File::delete(public_path('foto/post') . '/' . $img->image);
             }
 
@@ -138,10 +155,10 @@ class PostController extends Controller
 
 
 
-            if($post){
+            if ($post) {
                 return redirect()->intended('/post-restore')->with('delete', 'berhasil dihapus');
             }
-        }else{
+        } else {
             return redirect()->intended('/post-restore')->with('faildel', 'gagal dihapus');
         }
 

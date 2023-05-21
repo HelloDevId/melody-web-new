@@ -53,7 +53,8 @@
                                         <input name="password" type="password" class="form-control"
                                             value="{{ Session::get('password') }}" placeholder="Password" required>
                                     </div>
-                                    <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
+                                    <button type="submit" class="btn login-form__btn submit w-100">Sign
+                                        In</button>
                                 </form>
                                 {{-- <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html"
                                         class="text-primary">Sign Up</a> now</p> --}}

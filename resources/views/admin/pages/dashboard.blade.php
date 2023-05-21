@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-2">
+                <div class="card gradient-1">
                     <div class="card-body">
                         <h3 class="card-title text-white">Products</h3>
                         <div class="d-inline-block">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-3">
+                <div class="card gradient-1">
                     <div class="card-body">
                         <h3 class="card-title text-white">Customers</h3>
                         <div class="d-inline-block">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-4">
+                <div class="card gradient-1">
                     <div class="card-body">
                         <h3 class="card-title text-white">Categories</h3>
                         <div class="d-inline-block">

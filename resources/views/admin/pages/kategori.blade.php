@@ -98,8 +98,8 @@
 
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-secondary">Delete</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="button" class="btn btn-primary"
                                                                 data-dismiss="modal">Close</button>
 
                                                         </div>
@@ -132,8 +132,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button class="btn btn-secondary" type="submit">Save</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button class="btn btn-primary" type="submit">Save</button>
+                                                            <button type="button" class="btn btn-danger"
                                                                 data-dismiss="modal">Close</button>
 
                                                         </div>
@@ -169,8 +169,8 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary" type="submit">Save</button>
-                                            <button type="button" class="btn btn-secondary"
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">Close</button>
 
                                         </div>
@@ -199,7 +199,7 @@
 
                 buttons: [{
                         extend: 'colvis',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         text: 'Column Visibility',
                         // columns: ':gt(0)'
 
@@ -209,7 +209,7 @@
                     {
 
                         extend: 'pageLength',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         text: 'Page Length',
                         // columns: ':gt(0)'
                     },
@@ -219,7 +219,7 @@
 
                     {
                         extend: 'excel',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }
@@ -234,7 +234,7 @@
                     // },
                     {
                         extend: 'pdf',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }
@@ -242,7 +242,7 @@
 
                     {
                         extend: 'print',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }

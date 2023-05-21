@@ -14,7 +14,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a class="btn btn-primary btn-sm mb-4" href="/kategori"><i class="fa fa-arrow-left"></i></a>
+                        <a class="btn btn-purple btn-sm mb-4" href="/kategori"><i class="fa fa-arrow-left"></i></a>
                         <h4 class="card-title">Data Kategori Terhapus</h4>
                         <div class="align-right text-right">
 
@@ -89,8 +89,8 @@
                                                         </div>
 
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-secondary">Hapus</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                            <button type="button" class="btn btn-primary"
                                                                 data-dismiss="modal">Close</button>
 
                                                         </div>
@@ -123,7 +123,7 @@
 
                 buttons: [{
                         extend: 'colvis',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         text: 'Column Visibility',
                         // columns: ':gt(0)'
 
@@ -133,7 +133,7 @@
                     {
 
                         extend: 'pageLength',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         text: 'Page Length',
                         // columns: ':gt(0)'
                     },
@@ -143,7 +143,7 @@
 
                     {
                         extend: 'excel',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }
@@ -158,7 +158,7 @@
                     // },
                     {
                         extend: 'pdf',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }
@@ -166,7 +166,7 @@
 
                     {
                         extend: 'print',
-                        className: 'btn btn-primary btn-sm',
+                        className: 'btn btn-purple btn-sm',
                         exportOptions: {
                             columns: [0, ':visible']
                         }

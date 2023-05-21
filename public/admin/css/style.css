@@ -28,7 +28,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .dropdown-mega-menu .ext-link.link-1 a,
 .morris-hover,
 .datamaps-hoverover {
-    background-image: linear-gradient(230deg, #759bff, #843cf6);
+    background-image: linear-gradient(230deg, #A569BD, #BB8FCE);
 }
 
 .gradient-2,
@@ -91,7 +91,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
     --blue: #324cdd;
     --indigo: #6610f2;
-    --purple: #6f42c1;
+    --purple: #A569BD ;
     --pink: #e83e8c;
     --red: #ec0c38;
     --orange: #fd7e14;
@@ -2476,6 +2476,39 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
+.btn-purple {
+    color: #fff;
+    background-color: #A569BD ;
+    border-color: #A569BD ;
+}
+.btn-purple:hover {
+    color: #fff;
+    background-color: #8E44AD ;
+    border-color: #8E44AD ;
+}
+.btn-purple:focus,
+.btn-purple.focus {
+    box-shadow: 0 0 0 0.2rem rgba(117, 113, 249, 0.5);
+}
+.btn-purple.disabled,
+.btn-purple:disabled {
+    color: #fff;
+    background-color: #A569BD 9;
+    border-color: #A569BD ;
+}
+.btn-purple:not(:disabled):not(.disabled):active,
+.btn-purple:not(:disabled):not(.disabled).active,
+.show > .btn-purple.dropdown-toggle {
+    color: #fff;
+    background-color: #A569BD ;
+    border-color: #A569BD ;
+}
+.btn-purple:not(:disabled):not(.disabled):active:focus,
+.btn-purple:not(:disabled):not(.disabled).active:focus,
+.show > .btn-purple.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(117, 113, 249, 0.5);
+}
+
 .btn-primary {
     color: #fff;
     background-color: #7571f9;
@@ -4692,13 +4725,13 @@ input[type="button"].btn-block {
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #7571f9;
+    color: #A569BD;
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
 .page-link:hover {
     z-index: 2;
-    color: #2e28f6;
+    color: #8E44AD ;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
@@ -4723,12 +4756,21 @@ input[type="button"].btn-block {
     border-bottom-right-radius: 0.25rem;
 }
 
-.page-item.active .page-link {
+
+/* .page-item.active .page-link {
     z-index: 1;
     color: #fff;
     background-color: #7571f9;
     border-color: #7571f9;
+} */
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #A569BD ;
+    border-color: #A569BD;
 }
+
 
 .page-item.disabled .page-link {
     color: #f7fafc;
@@ -13885,7 +13927,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .login-form__btn {
-    background: #455f98;
+    background: #A569BD;
     color: #fff;
     padding: 13px 40px;
     font-size: 14px;
@@ -13897,7 +13939,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 .login-form__btn.submit {
     padding: 15px 40px;
-    background: #7571f9;
+    background: #A569BD;
     font-weight: 700;
 }
 
@@ -19764,7 +19806,7 @@ html[dir="rtl"]
 }
 
 [data-nav-headerbg="color_1"] .nav-header {
-    background-color: #7571f9;
+    background-color: #A569BD;
 }
 
 [data-nav-headerbg="color_2"] .nav-header {

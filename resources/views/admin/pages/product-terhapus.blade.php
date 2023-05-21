@@ -67,7 +67,10 @@
                                 </div>
                             @endif
                             <div class="table-responsive">
-                                <table id="example" class="table table-bordered zero-configuration">
+                                <table id="example"
+                                    class="table table-bordered zero-configuration display responsive nowrap"
+                                    style="width:100%">
+
                                     <thead>
                                         <tr>
                                             <th>No</th>

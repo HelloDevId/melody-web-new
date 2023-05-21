@@ -28,7 +28,7 @@
 
                                 <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
                                     <a href="product.html"
-                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                        class="flex-c-m stext-101 cl0 size-101 bg10 bor1 hov-btn4 p-lr-15 trans-04">
                                         Shop Now
                                     </a>
                                 </div>
@@ -54,7 +54,7 @@
 
                                 <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
                                     <a href="product.html"
-                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                        class="flex-c-m stext-101 cl0 size-101 bg10 bor1 hov-btn4 p-lr-15 trans-04">
                                         Shop Now
                                     </a>
                                 </div>
@@ -81,7 +81,7 @@
 
                                 <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
                                     <a href="product.html"
-                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                        class="flex-c-m stext-101 cl0 size-101 bg10 bor1 hov-btn4 p-lr-15 trans-04">
                                         Shop Now
                                     </a>
                                 </div>
@@ -122,7 +122,7 @@
                                             <img src="{{ asset('foto/product/' . $datanya['image']) }}" alt="IMG-PRODUCT">
 
                                             <a href="/detail-product/{{ $datanya->id }}"
-                                                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn5 p-lr-15 trans-04 js-show-modal1">
                                                 View
                                             </a>
                                         </div>
@@ -142,7 +142,7 @@
                                                 </span>
                                             </div>
 
-                                            <div class="block2-txt-child2 flex-r p-t-3">
+                                            {{-- <div class="block2-txt-child2 flex-r p-t-3">
                                                 <a href="#"
                                                     class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                                                     <img class="icon-heart1 dis-block trans-04"
@@ -152,7 +152,7 @@
                                                         src="{{ asset('landing/images/icons/icon-heart-02.png') }}"
                                                         alt="ICON">
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                                     <img src="{{ asset('foto/product/' . $data['image']) }}" alt="IMG-PRODUCT">
 
                                     <a href="/detail-product/{{ $data->id }}"
-                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn5 p-lr-15 trans-04 js-show-modal1">
                                         View
                                     </a>
                                 </div>
@@ -357,7 +357,7 @@
         <section class="bg0 p-t-104 p-b-116">
             <div class="container">
                 <div class="flex-w flex-tr">
-                    <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+                    {{-- <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
                         <form>
                             <h4 class="mtext-105 cl2 txt-center p-b-30">
                                 Send Us A Message
@@ -378,6 +378,55 @@
                                 Submit
                             </button>
                         </form>
+                    </div> --}}
+                    <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
+                        <div class="flex-w w-full p-b-42">
+                            <span class="fs-18 cl5 txt-center size-211">
+                                <span class="fa fa-facebook"></span>
+                            </span>
+
+                            <div class="size-212 p-t-2">
+                                <span class="mtext-110 cl2">
+                                    Facebook
+                                </span>
+
+                                <p class="stext-115 cl13 size-213 p-t-18">
+                                    Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex-w w-full p-b-42">
+                            <span class="fs-18 cl5 txt-center size-211">
+                                <span class="fa fa-instagram"></span>
+                            </span>
+
+                            <div class="size-212 p-t-2">
+                                <span class="mtext-110 cl2">
+                                    Instagram
+                                </span>
+
+                                <p class="stext-115 cl13 size-213 p-t-18">
+                                    +1 800 1236879
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex-w w-full">
+                            <span class="fs-18 cl5 txt-center size-211">
+                                <span class="fa fa-youtube"></span>
+                            </span>
+
+                            <div class="size-212 p-t-2">
+                                <span class="mtext-110 cl2">
+                                    Youtube
+                                </span>
+
+                                <p class="stext-115 cl13 size-213 p-t-18">
+                                    contact@example.com
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
@@ -391,7 +440,7 @@
                                     Address
                                 </span>
 
-                                <p class="stext-115 cl6 size-213 p-t-18">
+                                <p class="stext-115 cl13 size-213 p-t-18">
                                     Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
                                 </p>
                             </div>
@@ -407,7 +456,7 @@
                                     Lets Talk
                                 </span>
 
-                                <p class="stext-115 cl1 size-213 p-t-18">
+                                <p class="stext-115 cl13 size-213 p-t-18">
                                     +1 800 1236879
                                 </p>
                             </div>
@@ -423,7 +472,7 @@
                                     Sale Support
                                 </span>
 
-                                <p class="stext-115 cl1 size-213 p-t-18">
+                                <p class="stext-115 cl13 size-213 p-t-18">
                                     contact@example.com
                                 </p>
                             </div>
@@ -436,7 +485,7 @@
 
         <!-- Map -->
         <div class="map">
-            <div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787"
+            <div class="size-303" id="google_map" data-map-x="-8.1590526" data-map-y="113.7200901"
                 data-pin="{{ asset('landing/images/icons/pin.png') }}" data-scrollwhell="0" data-draggable="1"
                 data-zoom="11"></div>
         </div>

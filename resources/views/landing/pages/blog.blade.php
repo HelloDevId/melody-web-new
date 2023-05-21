@@ -32,7 +32,7 @@
                                     <div class="p-t-32">
                                         <h4 class="p-b-15">
                                             <a href="/detail-blog/{{ $data->id }}"
-                                                class="ltext-108 cl2 hov-cl1 trans-04">
+                                                class="ltext-108 cl2 hov-cl2 trans-04">
                                                 {{ $data->title }}
                                             </a>
                                         </h4>
@@ -56,7 +56,7 @@
                                             </span>
 
                                             <a href="/detail-blog/{{ $data->id }}"
-                                                class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+                                                class="stext-101 cl2 hov-cl2 trans-04 m-tb-10">
                                                 Continue Reading
 
                                                 <i class="fa fa-long-arrow-right m-l-9"></i>

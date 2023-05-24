@@ -140,7 +140,7 @@
 
     @if (Session::get('updateprofil'))
         <script>
-            swal("Well Done", "Password Berhasil Diperbarui", "success");
+            swal("Well Done", "Profil Berhasil Diperbarui", "success");
         </script>
     @endif
 

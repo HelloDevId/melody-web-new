@@ -10,14 +10,6 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    <div class="text-center">
-                        <img src="{{ asset('foto/user/' . Auth::User()->image) }}" class="rounded-circle" alt="..."
-                            height="150">
-                    </div>
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">Image</label>
-                        <input name="image" class="form-control" id="formFileSm" type="file">
-                    </div>
                     <div class="form-group">
                         <label for="">Name</label>
                         <input type="text" name="name" value="{{ Auth::User()->name }}" class="form-control"

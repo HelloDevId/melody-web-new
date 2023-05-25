@@ -20,6 +20,16 @@
                  </a>
              </li>
              <li>
+                 <a href="/antrian" aria-expanded="false">
+                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Antrian</span>
+                 </a>
+             </li>
+             <li>
+                 <a href="/konsultasi" aria-expanded="false">
+                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Konsultasi</span>
+                 </a>
+             </li>
+             <li>
                  <a href="/product" aria-expanded="false">
                      <i class="icon-notebook menu-icon"></i><span class="nav-text">Product</span>
                  </a>

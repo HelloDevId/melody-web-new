@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\DashboardController;
 
 
 
@@ -26,6 +27,11 @@ Route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
 Route::put('/profil-update/{id}', [AuthController::class, 'profilupdate'])->middleware('IsLogin');
+
+Route::get('/antrian', [AntrianController::class, 'index'])->middleware('IsLogin');
+Route::post('/antrian-add', [AntrianController::class, 'store'])->middleware('IsLogin');
+Route::put('/antrian-edit/{id}', [AntrianController::class, 'update'])->middleware('IsLogin');
+Route::delete('/antrian-delete/{id}', [AntrianController::class, 'destroy'])->middleware('IsLogin');
 
 Route::get('/product', [ProductController::class, 'index'])->middleware('IsLogin');
 Route::post('/product-add', [ProductController::class, 'store'])->middleware('IsLogin');

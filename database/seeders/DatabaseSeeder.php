@@ -3,11 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Antrian;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Product;
 use App\Models\Kategori;
+use App\Models\Konsultasi;
 use App\Models\Post;
 
 
@@ -279,6 +282,18 @@ class DatabaseSeeder extends Seeder
             'image' => 'blog3.jpg',
             'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet est vel orci luctus sollicitudin. Duis eleifend vestibulum justo, varius semper lacus condimentum dictum. Donec pulvinar a magna ut malesuada. In posuere felis diam, vel sodales metus accumsan in. Duis viverra dui eu pharetra pellentesque. Donec a eros leo. Quisque sed ligula vitae lorem efficitur faucibus. Praesent sit amet imperdiet ante. Nulla id tellus auctor, dictum libero a, malesuada nisi. Nulla in porta nibh, id vestibulum ipsum. Praesent dapibus tempus erat quis aliquet. Donec ac purus id sapien condimentum feugiat.',
             'id_user' => 1,
+        ]);
+
+        Antrian::create([
+            'id_user' => 2,
+            'no_antrian' => 1,
+            'tanggal' => date('Y-m-d'),
+            'status' => 'Selesai',
+        ]);
+
+        Konsultasi::create([
+            'id_antrian' => 1,
+            'hasil_konsultasi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
         ]);
     }
 }

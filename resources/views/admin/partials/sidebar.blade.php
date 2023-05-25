@@ -21,12 +21,12 @@
              </li>
              <li>
                  <a href="/antrian" aria-expanded="false">
-                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Antrian</span>
+                     <i class="icon-bell menu-icon"></i><span class="nav-text">Antrian</span>
                  </a>
              </li>
              <li>
                  <a href="/konsultasi" aria-expanded="false">
-                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Konsultasi</span>
+                     <i class="icon-check menu-icon"></i><span class="nav-text">Konsultasi</span>
                  </a>
              </li>
              <li>
@@ -47,7 +47,7 @@
              </li>
              <li>
                  <a href="/post" aria-expanded="false">
-                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Post</span>
+                     <i class="icon-pencil menu-icon"></i><span class="nav-text">Post</span>
                  </a>
              </li>
              {{-- <li class="mega-menu mega-menu-sm">

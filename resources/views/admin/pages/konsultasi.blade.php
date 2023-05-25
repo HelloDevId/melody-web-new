@@ -1,7 +1,7 @@
 @extends('admin.layouts.mainlayout')
 
 @section('title')
-    Data Kategori
+    Data Konsultasi
 @endsection
 
 @section('css')
@@ -14,12 +14,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Kategori</h4>
+                        <h4 class="card-title">Data Konsultasi</h4>
                         <div class="align-right text-right">
                             <button data-toggle="modal" data-target="#addModal" type="button"
                                 class="btn mb-1 btn-rounded btn-outline-primary btn-sm ms-auto">Add</button>
-                            <a href="/kategori-restore"
-                                class="btn mb-1 btn-rounded btn-outline-warning btn-sm ms-auto">Terhapus</a>
                         </div>
 
                         @if ($errors->any())
@@ -46,7 +44,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
+                                        <th>Nomer Antrian</th>
+                                        <th>Nama</th>
+                                        <th>Tanggal</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,15 +56,17 @@
                                     $no = 1;
                                     
                                     ?>
-                                    @foreach ($kategori as $data)
+                                    @foreach ($konsultasi as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->antrian->no_antrian }}</td>
+                                            <td>{{ $data->antrian->user->name }}</td>
+                                            <td>{{ $data->antrian->tanggal }}</td>
                                             <td>
                                                 <div class="text-center">
-                                                    {{-- <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
+                                                    <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#detailModal{{ $data->id }}"><i
-                                                            class="icon-eye menu-icon"></i></button> --}}
+                                                            class="icon-eye menu-icon"></i></button>
                                                     <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#editModal{{ $data->id }}">
                                                         <i
@@ -80,6 +82,38 @@
 
                                         </tr>
                                         <!-- Modal -->
+                                        <div class="modal fade bd-example-modal-lg" id="detailModal{{ $data->id }}">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Detail Modal</h5>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal"><span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form>
+                                                        <div class="modal-body">
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Hasil
+                                                                    Konsultasi</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea class="form-control" cols="30" rows="5">{{ $data->hasil_konsultasi }}</textarea>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-dismiss="modal">Close</button>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
                                         <div class="modal fade" id="hapusModal{{ $data->id }}">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -90,7 +124,7 @@
                                                         </button>
                                                     </div>
 
-                                                    <form action="/kategori-delete/{{ $data->id }}" method="POST">
+                                                    <form action="/konsultasi-delete/{{ $data->id }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <div class="modal-body">
@@ -119,16 +153,15 @@
                                                             data-dismiss="modal"><span>&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="/kategori-edit/{{ $data->id }}" method="POST">
+                                                    <form action="/konsultasi-edit/{{ $data->id }}" method="POST">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="modal-body">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-2 col-form-label">Name</label>
+                                                                <label class="col-sm-2 col-form-label">Hasil
+                                                                    Konsultasi</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" name="name"
-                                                                        value="{{ $data->name }}" class="form-control"
-                                                                        placeholder="Masukkan Nama">
+                                                                    <textarea class="form-control" name="hasil_konsultasi" cols="30" rows="5">{{ $data->hasil_konsultasi }}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -157,15 +190,27 @@
                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                         </button>
                                     </div>
-                                    <form action="/kategori-add" method="POST">
+                                    <form action="/konsultasi-add" method="POST">
                                         @csrf
                                         @method('POST')
                                         <div class="modal-body">
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Nama</label>
+                                                <label class="col-sm-2 col-form-label">Antrian</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="name" value="" class="form-control"
-                                                        placeholder="Masukkan Nama">
+                                                    <select name="id_antrian" class="form-control">
+                                                        <option value="">Pilih Nomer Antrian</option>
+                                                        @foreach ($antrian as $datass)
+                                                            <option value="{{ $datass->id }}">Nomer Antrian
+                                                                {{ $datass->no_antrian }} - Tanggal {{ $datass->tanggal }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Hasil Konsultasi</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="hasil_konsultasi" cols="30" rows="5"></textarea>
                                                 </div>
                                             </div>
                                         </div>

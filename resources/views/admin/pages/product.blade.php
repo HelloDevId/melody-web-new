@@ -223,8 +223,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Kategori</label>
                                                                     <div class="col-sm-10">
-                                                                        <select name="id_kategori" class="form-control"
-                                                                            id="single-select{{ $data->id }}">
+                                                                        <select name="id_kategori" class="form-control">
                                                                             <option selected
                                                                                 value="{{ $data->kategori->id }}">
                                                                                 {{ $data->kategori->name }}</option>
@@ -312,8 +311,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Kategori</label>
                                                 <div class="col-sm-10">
-                                                    <select name="id_kategori" class="form-control"
-                                                        id="single-select-add">
+                                                    <select name="id_kategori" class="form-control">
                                                         <option selected value="">Pilih Kategori</option>
                                                         @foreach ($kategori as $datas)
                                                             <option value="{{ $datas->id }}">

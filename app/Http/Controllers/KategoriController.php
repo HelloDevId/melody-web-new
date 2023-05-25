@@ -10,19 +10,24 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        return view('admin.pages.kategori',[
+        return view('admin.pages.kategori', [
             'kategori' => $kategori,
         ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-        ],
-        [
-            'name.required' => 'Nama tidak boleh kosong',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|max:30|unique:tb_kategori,name|alpha',
+            ],
+            [
+                'name.required' => 'Nama tidak boleh kosong',
+                'name.max' => 'Nama tidak boleh lebih dari 30 karakter',
+                'name.unique' => 'Nama sudah ada',
+                'name.alpha' => 'Nama harus berupa string',
+            ]
+        );
 
         $kategori = new Kategori;
         $kategori->name = $request->name;
@@ -32,14 +37,20 @@ class KategoriController extends Controller
 
     }
 
-    public function update(Request $request, $id){
-        
-        $request->validate([
-            'name' => 'required',
-        ],
-        [
-            'name.required' => 'Nama tidak boleh kosong',
-        ]);
+    public function update(Request $request, $id)
+    {
+
+        $request->validate(
+            [
+                'name' => 'required|max:30|alpha|unique:tb_user,email,' . $id,
+            ],
+            [
+                'name.required' => 'Nama tidak boleh kosong',
+                'name.max' => 'Nama tidak boleh lebih dari 30 karakter',
+                'name.unique' => 'Nama sudah ada',
+                'name.alpha' => 'Nama harus berupa string',
+            ]
+        );
 
         $kategori = Kategori::find($id);
         $kategori->name = $request->name;
@@ -49,23 +60,26 @@ class KategoriController extends Controller
 
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         $kategori = Kategori::find($id);
         $kategori->delete();
 
         return redirect()->intended('/kategori')->with('delete', 'berhasil delete');
-        
-       
+
+
     }
 
-    public function restorekategori(){
+    public function restorekategori()
+    {
         $kategori = Kategori::onlyTrashed()->get();
-        return view('admin.pages.kategori-terhapus',[
+        return view('admin.pages.kategori-terhapus', [
             'kategori' => $kategori,
         ]);
     }
-    public function restore($id){
+    public function restore($id)
+    {
         $kategori = Kategori::onlyTrashed()->where('id', $id);
         $kategori->restore();
 
@@ -78,11 +92,7 @@ class KategoriController extends Controller
         $kategori->forceDelete();
 
         return redirect()->intended('/kategori-restore')->with('delete', 'berhasil delete');
-     
+
     }
 
 }
-
-
-
-

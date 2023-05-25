@@ -15,13 +15,14 @@ class ProductController extends Controller
         $product = Product::with('kategori')->get();
 
         $kategori = Kategori::all();
-        return view('admin.pages.product',[
+        return view('admin.pages.product', [
             'product' => $product,
             'kategori' => $kategori,
         ]);
     }
 
-    public function indexlanding(Request $request){
+    public function indexlanding(Request $request)
+    {
 
         $ip = $request->ip();
         $browser = $request->header('User-Agent');
@@ -29,31 +30,32 @@ class ProductController extends Controller
         Visitors::create([
             'ip_address' => $ip,
             'browser' => $browser,
-            
+
         ]);
 
 
-    $datakategori = Kategori::all();
+        $datakategori = Kategori::all();
 
-    foreach($datakategori as $kategori){
-        $topproduct = Product::with('kategori')->where('id_kategori', $kategori->id)->orderBy('jumlah_terjual', 'desc')->limit(5)->get();
-    }
+        foreach ($datakategori as $kategori) {
+            $topproduct = Product::with('kategori')->where('id_kategori', $kategori->id)->orderBy('jumlah_terjual', 'desc')->limit(5)->get();
+        }
 
         $product = Product::with('kategori')->paginate(16);
-        return view('landing.pages.index',[
+        return view('landing.pages.index', [
             'product' => $product,
             'datakategori' => $datakategori,
             'topproduct' => $topproduct,
-            
+
         ]);
     }
 
-    public function detailproduct($id){
+    public function detailproduct($id)
+    {
         $product = Product::with('kategori')->where('id', $id)->first();
         $relate = Product::with('kategori')->where('id_kategori', $product->id_kategori)->limit(5)->get();
 
 
-        return view('landing.pages.detail-product',[
+        return view('landing.pages.detail-product', [
             'product' => $product,
             'relate' => $relate,
         ]);
@@ -62,25 +64,30 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'harga' => 'required',
-            'deskripsi' => 'required',
-            'jumlah_terjual' => 'required',
-            'id_kategori' => 'required',
-        ],
-        [
-            'name.required' => 'Nama tidak boleh kosong',
-            'image.required' => 'Foto tidak boleh kosong',
-            'image.image' => 'Foto harus berupa gambar',
-            'image.max' => 'Foto maksimal 2MB',
-            'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
-            'price.required' => 'Harga tidak boleh kosong',
-            'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
-            'description.required' => 'Deskripsi tidak boleh kosong',
-            'id_kategori.required' => 'Kategori tidak boleh kosong',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'harga' => 'required|max:12|min:4|numeric',
+                'deskripsi' => 'required',
+                'jumlah_terjual' => 'required',
+                'id_kategori' => 'required',
+            ],
+            [
+                'name.required' => 'Nama tidak boleh kosong',
+                'image.required' => 'Foto tidak boleh kosong',
+                'image.image' => 'Foto harus berupa gambar',
+                'image.max' => 'Foto maksimal 2MB',
+                'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
+                'harga.required' => 'Harga tidak boleh kosong',
+                'harga.max' => 'Harga maksimal 12 digit',
+                'harga.min' => 'Harga minimal 4 digit',
+                'harga.numeric' => 'Harga harus berupa angka',
+                'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
+                'description.required' => 'Deskripsi tidak boleh kosong',
+                'id_kategori.required' => 'Kategori tidak boleh kosong',
+            ]
+        );
 
         $fileNameImage = time() . '.' . $request->image->extension();
         $request->image->move(public_path('foto/product/'), $fileNameImage);
@@ -97,28 +104,34 @@ class ProductController extends Controller
         return redirect()->intended('/product')->with('create', 'berhasil create');
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
 
-        if($request->image){
-            $request->validate([
-                'name' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'harga' => 'required',
-                'deskripsi' => 'required',
-                'jumlah_terjual' => 'required',
-                'id_kategori' => 'required',
-            ],
-            [
-                'name.required' => 'Nama tidak boleh kosong',
-                'image.required' => 'Foto tidak boleh kosong',
-                'image.image' => 'Foto harus berupa gambar',
-                'image.max' => 'Foto maksimal 2MB',
-                'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
-                'price.required' => 'Harga tidak boleh kosong',
-                'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
-                'description.required' => 'Deskripsi tidak boleh kosong',
-                'id_kategori.required' => 'Kategori tidak boleh kosong',
-            ]);
+        if ($request->image) {
+            $request->validate(
+                [
+                    'name' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'harga' => 'required|max:12|min:4|numeric',
+                    'deskripsi' => 'required',
+                    'jumlah_terjual' => 'required',
+                    'id_kategori' => 'required',
+                ],
+                [
+                    'name.required' => 'Nama tidak boleh kosong',
+                    'image.required' => 'Foto tidak boleh kosong',
+                    'image.image' => 'Foto harus berupa gambar',
+                    'image.max' => 'Foto maksimal 2MB',
+                    'image.mimes' => 'Foto harus berupa jpeg,png,jpg,gif,svg',
+                    'harga.required' => 'Harga tidak boleh kosong',
+                    'harga.max' => 'Harga maksimal 12 digit',
+                    'harga.min' => 'Harga minimal 4 digit',
+                    'harga.numeric' => 'Harga harus berupa angka',
+                    'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
+                    'description.required' => 'Deskripsi tidak boleh kosong',
+                    'id_kategori.required' => 'Kategori tidak boleh kosong',
+                ]
+            );
 
             $deleteimage = Product::where('id', $id)->first();
             File::delete(public_path('foto/product') . '/' . $deleteimage->image);
@@ -136,21 +149,26 @@ class ProductController extends Controller
             $product->save();
 
             return redirect()->intended('/product')->with('update', 'berhasil update');
-        }else{
-            $request->validate([
-                'name' => 'required',
-                'harga' => 'required',
-                'jumlah_terjual' => 'required',
-                'deskripsi' => 'required',
-                'id_kategori' => 'required',
-            ],
-            [
-                'name.required' => 'Nama tidak boleh kosong',
-                'price.required' => 'Harga tidak boleh kosong',
-                'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
-                'description.required' => 'Deskripsi tidak boleh kosong',
-                'id_kategori.required' => 'Kategori tidak boleh kosong',
-            ]);
+        } else {
+            $request->validate(
+                [
+                    'name' => 'required',
+                    'harga' => 'required|max:12|min:4|numeric',
+                    'jumlah_terjual' => 'required',
+                    'deskripsi' => 'required',
+                    'id_kategori' => 'required',
+                ],
+                [
+                    'name.required' => 'Nama tidak boleh kosong',
+                    'harga.required' => 'Harga tidak boleh kosong',
+                    'harga.max' => 'Harga maksimal 12 digit',
+                    'harga.min' => 'Harga minimal 4 digit',
+                    'harga.numeric' => 'Harga harus berupa angka',
+                    'jumlah_terjual.required' => 'Jumlah terjual tidak boleh kosong',
+                    'description.required' => 'Deskripsi tidak boleh kosong',
+                    'id_kategori.required' => 'Kategori tidak boleh kosong',
+                ]
+            );
 
 
             $product = Product::find($id);
@@ -165,30 +183,33 @@ class ProductController extends Controller
         }
     }
 
-    public function destroy(Request $request){
+    public function destroy(Request $request)
+    {
         $ids = $request->ids;
 
-        if($ids != null){
+        if ($ids != null) {
 
             $product = Product::whereIn('id', $ids);
             $product->delete();
 
-            if($product){
+            if ($product) {
                 return redirect()->intended('/product')->with('delete', 'berhasil dihapus');
             }
-        }else{
+        } else {
             return redirect()->intended('/product')->with('faildel', 'gagal dihapus');
         }
     }
 
-    public function restoreproduct(){
+    public function restoreproduct()
+    {
         $product = Product::onlyTrashed()->get();
-        return view('admin.pages.product-terhapus',[
+        return view('admin.pages.product-terhapus', [
             'product' => $product,
         ]);
     }
 
-    public function restore($id){
+    public function restore($id)
+    {
         $product = Product::onlyTrashed()->where('id', $id);
         $product->restore();
 
@@ -196,12 +217,13 @@ class ProductController extends Controller
 
     }
 
-    public function deleteproduct(Request $request){
+    public function deleteproduct(Request $request)
+    {
         $ids = $request->ids;
-        if($ids != null){
+        if ($ids != null) {
 
             $imgedelete = Product::onlyTrashed()->whereIn('id', $ids)->get();
-            foreach($imgedelete as $img){
+            foreach ($imgedelete as $img) {
                 File::delete(public_path('foto/product') . '/' . $img->image);
             }
 
@@ -210,10 +232,10 @@ class ProductController extends Controller
 
 
 
-            if($product){
+            if ($product) {
                 return redirect()->intended('/product-restore')->with('delete', 'berhasil dihapus');
             }
-        }else{
+        } else {
             return redirect()->intended('/product-restore')->with('faildel', 'gagal dihapus');
         }
 

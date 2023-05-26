@@ -157,10 +157,6 @@ class ApiAuthController extends Controller
         $user->image = $photoName;
         $user->save();
 
-        return response()->json([
-            'message' => 'Profile picture updated successfully',
-        ]);
-
+        return response()->json('Profile picture updated successfully');
     }
-
 }

@@ -13,7 +13,7 @@ Route::post('/signin', [ApiAuthController::class, 'sign_in']);
 //product
 Route::get('/product', [ApiProductController::class, 'index']);
 Route::get('/productall', [ApiProductController::class, 'all']);
-Route::get('product/{id_kategori}', [ApiProductController::class, 'show']);
+Route::get('/product/{id_kategori}', [ApiProductController::class, 'show']);
 
 //kategori
 Route::get('/kategori', [ApiKategoriController::class, 'index']);

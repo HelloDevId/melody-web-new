@@ -59,6 +59,7 @@ Route::delete('/kategori-force-delete/{id}', [KategoriController::class, 'forced
 
 Route::get('/user', [UserController::class, 'index'])->middleware('IsLogin');
 Route::post('/user-add', [UserController::class, 'store'])->middleware('IsLogin');
+Route::get('/user-detail/{id}', [UserController::class, 'detailuser'])->middleware('IsLogin');
 Route::put('/user-edit/{id}', [UserController::class, 'update'])->middleware('IsLogin');
 Route::post('/user-delete', [UserController::class, 'destroy'])->middleware('IsLogin');
 Route::get('/user-restore', [UserController::class, 'restoreuser'])->middleware('IsLogin');

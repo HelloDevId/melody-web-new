@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Antrian;
+use App\Models\Konsultasi;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -20,6 +24,26 @@ class UserController extends Controller
         ]);
     }
 
+    public function detailuser($id)
+    {
+        $user = User::with('role')
+            ->where('id', $id)
+            ->first();
+
+        $datakonsultasi = DB::table('tb_konsultasi')
+            ->join('tb_antrian', 'tb_konsultasi.id_antrian', '=', 'tb_antrian.id')
+            ->join('tb_user', 'tb_antrian.id_user', '=', 'tb_user.id')
+            ->select('tb_konsultasi.*', 'tb_antrian.no_antrian', 'tb_antrian.tanggal')
+            ->where('tb_user.id', $id)
+            ->get();
+
+        return view('admin.pages.detailuser', [
+            'user' => $user,
+            'datakonsultasi' => $datakonsultasi,
+        ]);
+
+    }
+
     public function store(Request $request)
     {
         $request->validate(
@@ -30,7 +54,7 @@ class UserController extends Controller
                 'jenis_kelamin' => 'required',
                 'jenis_kulit' => 'required',
                 'tanggal_lahir' => 'required|date',
-                'no_hp' => 'required|numeric|digits_between:10,13|max:13',
+                'no_hp' => 'required|numeric|digits_between:10,12',
                 'alamat' => 'required',
                 'password' => 'required|min:8',
                 'repassword' => 'required|same:password',
@@ -51,8 +75,7 @@ class UserController extends Controller
                 'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                 'no_hp.required' => 'No HP tidak boleh kosong',
                 'no_hp.numeric' => 'No HP harus berupa angka',
-                'no_hp.digits_between' => 'No HP harus 10-13 digit',
-                'no_hp.max' => 'No HP maksimal 13 digit',
+                'no_hp.digits_between' => 'No HP harus 10-12 digit',
                 'alamat.required' => 'Alamat tidak boleh kosong',
                 'password.required' => 'Password tidak boleh kosong',
                 'password.min' => 'Password minimal 8 karakter',
@@ -93,7 +116,7 @@ class UserController extends Controller
                     'jenis_kelamin' => 'required',
                     'jenis_kulit' => 'required',
                     'tanggal_lahir' => 'required|date',
-                    'no_hp' => 'required|numeric|digits_between:10,13|max:13',
+                    'no_hp' => 'required|numeric|digits_between:10,12',
                     'alamat' => 'required',
                     'password' => 'required|min:8',
                     'repassword' => 'required|same:password',
@@ -117,8 +140,7 @@ class UserController extends Controller
                     'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                     'no_hp.required' => 'No HP tidak boleh kosong',
                     'no_hp.numeric' => 'No HP harus berupa angka',
-                    'no_hp.digits_between' => 'No HP harus 10-13 digit',
-                    'no_hp.max' => 'No HP maksimal 13 digit',
+                    'no_hp.digits_between' => 'No HP harus 10-12 digit',
                     'alamat.required' => 'Alamat tidak boleh kosong',
 
                 ]
@@ -151,7 +173,7 @@ class UserController extends Controller
                     'jenis_kelamin' => 'required',
                     'jenis_kulit' => 'required',
                     'tanggal_lahir' => 'required|date',
-                    'no_hp' => 'required|numeric|digits_between:10,13|max:13',
+                    'no_hp' => 'required|numeric|digits_between:10,12',
                     'alamat' => 'required',
                     'password' => 'required|min:8',
                     'repassword' => 'required|same:password',
@@ -171,8 +193,7 @@ class UserController extends Controller
                     'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                     'no_hp.required' => 'No HP tidak boleh kosong',
                     'no_hp.numeric' => 'No HP harus berupa angka',
-                    'no_hp.digits_between' => 'No HP harus 10-13 digit',
-                    'no_hp.max' => 'No HP maksimal 13 digit',
+                    'no_hp.digits_between' => 'No HP harus 10-12 digit',
                     'alamat.required' => 'Alamat tidak boleh kosong',
 
                 ]

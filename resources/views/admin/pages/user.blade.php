@@ -101,11 +101,14 @@
                                                 <td>{{ $data->email }}</td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <button type="button"
+                                                        {{-- <button type="button"
                                                             class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#detailModal{{ $data->id }}"><i
-                                                                class="icon-eye menu-icon"></i></button>
+                                                                class="icon-eye menu-icon"></i></button> --}}
+                                                        <a href="/user-detail/{{ $data->id }}"
+                                                            class="btn mx-1 mb-1 btn-outline-light btn-sm"><i
+                                                                class="icon-eye menu-icon"></i></a>
                                                         <button type="button"
                                                             class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                             data-toggle="modal" data-target="#editModal{{ $data->id }}">

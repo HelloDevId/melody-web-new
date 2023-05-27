@@ -194,6 +194,24 @@
                                         @csrf
                                         @method('POST')
                                         <div class="modal-body">
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Antrian</label>
+                                                <div class="col-sm-10">
+                                                    <select name="id_antrian" class="form-control js-example-basic-single"
+                                                        id="single-select-add" style="width:100%">
+                                                        <option selected value="">Pilih Nomer Antrian</option>
+                                                        @foreach ($antrian as $datass)
+                                                            <option value="{{ $datass->id }}">
+                                                                {{ $datass->no_antrian }} - {{ $datass->tanggal }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            \
+                                            {{-- 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Antrian</label>
                                                 <div class="col-sm-10">
@@ -206,7 +224,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Hasil Konsultasi</label>
                                                 <div class="col-sm-10">
@@ -302,6 +320,12 @@
             });
         });
     </script>
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
 @endsection
 
 @section('sweetalert')
@@ -323,6 +347,11 @@
     @if (Session::get('create'))
         <script>
             swal("Done", "Data Berhasil Ditambahkan", "success");
+        </script>
+    @endif
+    @if (Session::get('sudahada'))
+        <script>
+            swal("Gagal", "Data Sudah Ada", "error");
         </script>
     @endif
     @if (Session::get('gagal'))

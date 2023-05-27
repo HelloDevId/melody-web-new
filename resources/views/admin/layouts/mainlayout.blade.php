@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('admin/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/datatablesbutton.css') }}">
     <link href="{{ asset('admin/plugins/tables/css/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('admin/select2/select2.min.css') }}" rel="stylesheet" />
     {{-- #5897fb --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/jquery.signature.css') }}">
 

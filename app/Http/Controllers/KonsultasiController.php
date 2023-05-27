@@ -31,14 +31,19 @@ class KonsultasiController extends Controller
 
             ]);
 
+        $cekkonsultasi = Konsultasi::where('id_antrian', $request->id_antrian)->first();
+        if ($cekkonsultasi) {
+            return redirect()->intended('/konsultasi')->with('sudahada', 'Data sudah ada');
+        } else {
 
-        Konsultasi::create([
-            'id_antrian' => $request->id_antrian,
-            'hasil_konsultasi' => $request->hasil_konsultasi,
-        ]);
+            Konsultasi::create([
+                'id_antrian' => $request->id_antrian,
+                'hasil_konsultasi' => $request->hasil_konsultasi,
+            ]);
 
-        return redirect()->intended('/konsultasi')->with('create', 'berhasil update');
+            return redirect()->intended('/konsultasi')->with('create', 'berhasil update');
 
+        }
     }
 
     public function update(Request $request, $id)

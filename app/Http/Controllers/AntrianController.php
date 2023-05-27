@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Antrian;
+use App\Models\Konsultasi;
 use Illuminate\Http\Request;
 
 class AntrianController extends Controller
@@ -79,9 +80,14 @@ class AntrianController extends Controller
 
     public function destroy($id)
     {
-        $antrian = Antrian::find($id);
-        $antrian->delete();
+        $cekidnoantrian = Konsultasi::where('id_antrian', $id)->first();
+        if ($cekidnoantrian) {
+            return redirect()->back()->with('gagal', 'Gagal menghapus antrian, karena antrian sudah digunakan');
+        } else {
+            $antrian = Antrian::find($id);
+            $antrian->delete();
 
-        return redirect()->back()->with('delete', 'Berhasil menghapus antrian');
+            return redirect()->back()->with('delete', 'Berhasil menghapus antrian');
+        }
     }
 }

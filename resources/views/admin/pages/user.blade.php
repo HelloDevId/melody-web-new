@@ -156,7 +156,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="form-group row">
+                                                                {{-- <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Jenis
                                                                         Kulit</label>
                                                                     <div class="col-sm-10">
@@ -164,7 +164,7 @@
                                                                             value="{{ $data->jenis_kulit }}"
                                                                             class="form-control" placeholder="Tag">
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
 
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Tanggal
@@ -294,7 +294,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="form-group row">
+                                                                {{-- <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Jenis
                                                                         Kulit</label>
                                                                     <div class="col-sm-10">
@@ -316,7 +316,7 @@
 
                                                                         </select>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
 
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Alamat</label>
@@ -429,7 +429,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            {{-- <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Jenis
                                                     Kulit</label>
                                                 <div class="col-sm-10">
@@ -442,7 +442,7 @@
 
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Alamat</label>

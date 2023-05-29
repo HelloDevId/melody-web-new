@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\Antrian;
+use App\Models\Kulit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,7 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'jenis_kelamin',
-        'jenis_kulit',
+        'id_kulit',
         'tanggal_lahir',
         'no_hp',
         'alamat',
@@ -36,6 +37,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');
+    }
+
+    public function kulit()
+    {
+        return $this->belongsTo(Kulit::class, 'id_kulit', 'id');
     }
     public function post()
     {

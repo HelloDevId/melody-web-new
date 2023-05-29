@@ -12,6 +12,8 @@ use App\Models\Product;
 use App\Models\Kategori;
 use App\Models\Konsultasi;
 use App\Models\Post;
+use App\Models\Kulit;
+use App\Models\Keluhan;
 
 
 class DatabaseSeeder extends Seeder
@@ -30,12 +32,74 @@ class DatabaseSeeder extends Seeder
             'name' => 'user',
         ]);
 
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin'),
-            'id_role' => 1,
+        Kulit::create([
+            'name' => 'Kering',
         ]);
+
+        Kulit::create([
+            'name' => 'Berminyak',
+        ]);
+
+        Kulit::create([
+            'name' => 'Normal',
+        ]);
+
+        Kulit::create([
+            'name' => 'Kombinasi',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Jerawat',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Kusam',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Kering',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berminyak',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Sensitif',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Normal',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Kombinasi',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berjerawat',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berkomedo',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berflek',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berkerut',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berbintik',
+        ]);
+
+        Keluhan::create([
+            'name' => 'Kulit Berbekas',
+        ]);
+
 
         User::create([
             'name' => 'user',
@@ -43,11 +107,19 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@gmail.com',
             'password' => bcrypt('user'),
             'jenis_kelamin' => 'L',
-            'jenis_kulit' => 'Kering',
+            'id_kulit' => 1,
             'tanggal_lahir' => '2000-01-01',
             'no_hp' => '081234567890',
             'alamat' => 'Jl. Raya',
             'id_role' => 2,
+        ]);
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+            'id_kulit' => null,
+            'id_role' => 1,
         ]);
 
         Kategori::create([
@@ -289,6 +361,8 @@ class DatabaseSeeder extends Seeder
             'no_antrian' => 1,
             'tanggal' => date('Y-m-d'),
             'status' => 'Selesai',
+            'id_keluhan' => 1,
+            'detail_keluhan' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
         ]);
 
         Konsultasi::create([

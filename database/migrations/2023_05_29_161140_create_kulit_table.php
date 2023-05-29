@@ -10,12 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tb_antrian', function (Blueprint $table) {
+        Schema::create('tb_kulit', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_antrian');
-            $table->date('tanggal');
-            $table->enum('status', ['Belum Selesai', 'Selesai']);
-            $table->longText('detail_keluhan');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_antrian');
+        Schema::dropIfExists('tb_kulit');
     }
 };

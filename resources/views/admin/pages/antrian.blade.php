@@ -48,6 +48,7 @@
                                         <th>No</th>
                                         <th>Nomer Antrian</th>
                                         <th>Nama</th>
+
                                         <th>Tanggal</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -64,6 +65,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->no_antrian }}</td>
                                             <td>{{ $data->user->name }}</td>
+
                                             <td>{{ $data->tanggal }}</td>
                                             <td>
                                                 @if ($data->status == 'Belum Selesai')
@@ -74,9 +76,9 @@
                                             </td>
                                             <td>
                                                 <div class="text-center">
-                                                    {{-- <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
+                                                    <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#detailModal{{ $data->id }}"><i
-                                                            class="icon-eye menu-icon"></i></button> --}}
+                                                            class="icon-eye menu-icon"></i></button>
                                                     <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
                                                         data-toggle="modal" data-target="#editModal{{ $data->id }}">
                                                         <i
@@ -84,13 +86,59 @@
                                                             menu-icon"></i></button>
 
                                                     <button type="button" class="btn mx-1 mb-1 btn-outline-light btn-sm"
-                                                        data-toggle="modal" data-target="#hapusModal{{ $data->id }}"> <i
+                                                        data-toggle="modal" data-target="#hapusModal{{ $data->id }}">
+                                                        <i
                                                             class="icon-trash
                                                         menu-icon"></i></button>
                                                 </div>
                                             </td>
 
                                         </tr>
+                                        <!-- Modal -->
+                                        <div class="modal fade bd-example-modal-lg" id="detailModal{{ $data->id }}">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Detail Modal</h5>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal"><span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form>
+                                                        <div class="modal-body">
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" name="name"
+                                                                        value="{{ $data->keluhan->name }}"
+                                                                        class="form-control" placeholder="Masukkan Nama">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Detail
+                                                                    Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea class="form-control" cols="30" rows="5">{{ $data->detail_keluhan }}</textarea>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-dismiss="modal">Close</button>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
                                         <!-- Modal -->
                                         <div class="modal fade" id="hapusModal{{ $data->id }}">
                                             <div class="modal-dialog" role="document">
@@ -154,10 +202,34 @@
                                                             </div>
 
                                                             <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="id_keluhan" class="form-control">
+                                                                        <option selected value="{{ $data->keluhan->id }}">
+                                                                            {{ $data->keluhan->name }}</option>
+
+                                                                        @foreach ($datakeluhan as $datass)
+                                                                            <option value="{{ $datass->id }}">
+                                                                                {{ $datass->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Detail
+                                                                    Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea class="form-control" name="detail_keluhan" cols="30" rows="5">{{ $data->detail_keluhan }}</textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
                                                                 <label class="col-sm-2 col-form-label">Tanggal</label>
                                                                 <div class="col-sm-10">
                                                                     <input disabled type="date" name="tanggal"
-                                                                        value="{{ $data->tanggal }}" class="form-control">
+                                                                        value="{{ $data->tanggal }}"
+                                                                        class="form-control">
                                                                 </div>
                                                             </div>
 
@@ -224,6 +296,31 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Keluhan</label>
+                                                <div class="col-sm-10">
+                                                    <select name="id_keluhan" class="form-control">
+                                                        {{-- <option selected value="{{ $data->keluhan->id }}">
+                                                            {{ $data->keluhan->name }}</option> --}}
+                                                        <option value="">Pilih Keluhan</option>
+
+                                                        @foreach ($datakeluhan as $datass)
+                                                            <option value="{{ $datass->id }}">
+                                                                {{ $datass->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Detail
+                                                    Keluhan</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="detail_keluhan" cols="30" rows="5"></textarea>
+                                                </div>
+                                            </div>
+
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Tanggal</label>

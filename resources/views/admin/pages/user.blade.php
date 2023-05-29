@@ -156,15 +156,15 @@
                                                                     </div>
                                                                 </div>
 
-                                                                {{-- <div class="form-group row">
+                                                                <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Jenis
                                                                         Kulit</label>
                                                                     <div class="col-sm-10">
                                                                         <input type="text"
-                                                                            value="{{ $data->jenis_kulit }}"
+                                                                            value="{{ $data->kulit->name }}"
                                                                             class="form-control" placeholder="Tag">
                                                                     </div>
-                                                                </div> --}}
+                                                                </div>
 
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Tanggal
@@ -294,29 +294,22 @@
                                                                     </div>
                                                                 </div>
 
-                                                                {{-- <div class="form-group row">
+                                                                <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Jenis
                                                                         Kulit</label>
                                                                     <div class="col-sm-10">
-                                                                        <select name="jenis_kulit" class="form-control">
-                                                                            <option value="">-- Pilih Jenis Kulit --
-                                                                            </option>
-                                                                            <option value="Kering"
-                                                                                @if ($data->jenis_kulit == 'Kering') selected @endif>
-                                                                                Kering</option>
-                                                                            <option value="Berminyak"
-                                                                                @if ($data->jenis_kulit == 'Berminyak') selected @endif>
-                                                                                Berminyak</option>
-                                                                            <option value="Normal"
-                                                                                @if ($data->jenis_kulit == 'Normal') selected @endif>
-                                                                                Normal</option>
-                                                                            <option value="Kombinasi"
-                                                                                @if ($data->jenis_kulit == 'Kombinasi') selected @endif>
-                                                                                Kombinasi</option>
+                                                                        <select name="id_kulit" class="form-control">
+                                                                            <option selected
+                                                                                value="{{ $data->id_kulit }}">
+                                                                                {{ $data->kulit->name }}</option>
 
+                                                                            @foreach ($jeniskulit as $datass)
+                                                                                <option value="{{ $datass->id }}">
+                                                                                    {{ $datass->name }}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
-                                                                </div> --}}
+                                                                </div>
 
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Alamat</label>
@@ -429,20 +422,20 @@
                                                 </div>
                                             </div>
 
-                                            {{-- <div class="form-group row">
+                                            <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Jenis
                                                     Kulit</label>
                                                 <div class="col-sm-10">
-                                                    <select name="jenis_kulit" class="form-control">
+                                                    <select name="id_kulit" class="form-control">
                                                         <option value="">-- Pilih Jenis Kulit --</option>
-                                                        <option value="Kering">Kering</option>
-                                                        <option value="Berminyak">Berminyak</option>
-                                                        <option value="Normal">Normal</option>
-                                                        <option value="Kombinasi">Kombinasi</option>
 
+                                                        @foreach ($jeniskulit as $datass)
+                                                            <option value="{{ $datass->id }}">
+                                                                {{ $datass->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
-                                            </div> --}}
+                                            </div>
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Alamat</label>

@@ -30,7 +30,7 @@
                                     </tr>
                                     <tr>
                                         <th>Jenis Kulit</th>
-                                        <td>{{ $user->jenis_kulit }}</td>
+                                        <td>{{ $user->kulit->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
@@ -85,6 +85,24 @@
                                                     </div>
                                                     <form>
                                                         <div class="modal-body">
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" name="name"
+                                                                        value="{{ $data->keluhannama }}"
+                                                                        class="form-control" placeholder="Masukkan Nama">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Detail
+                                                                    Keluhan</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea class="form-control" cols="30" rows="5">{{ $data->detail_keluhan }}</textarea>
+                                                                </div>
+                                                            </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2 col-form-label">Hasil

@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use App\Models\Kulit;
 use App\Models\User;
-use App\Models\Antrian;
-use App\Models\Konsultasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $user = User::with('role')
+        $jeniskulit = Kulit::all();
+
+        $user = User::with('kulit')
             ->where('id_role', '2')
             ->get();
 
         return view('admin.pages.user', [
             'user' => $user,
+            'jeniskulit' => $jeniskulit,
         ]);
     }
 
@@ -32,8 +32,9 @@ class UserController extends Controller
 
         $datakonsultasi = DB::table('tb_konsultasi')
             ->join('tb_antrian', 'tb_konsultasi.id_antrian', '=', 'tb_antrian.id')
+            ->join('tb_keluhan', 'tb_antrian.id_keluhan', '=', 'tb_keluhan.id')
             ->join('tb_user', 'tb_antrian.id_user', '=', 'tb_user.id')
-            ->select('tb_konsultasi.*', 'tb_antrian.no_antrian', 'tb_antrian.tanggal')
+            ->select('tb_konsultasi.*', 'tb_antrian.no_antrian', 'tb_antrian.detail_keluhan', 'tb_antrian.tanggal', 'tb_keluhan.name as keluhannama')
             ->where('tb_user.id', $id)
             ->get();
 
@@ -52,7 +53,7 @@ class UserController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'email' => 'required|email|unique:tb_user,email',
                 'jenis_kelamin' => 'required',
-                'jenis_kulit' => 'required',
+                'id_kulit' => 'required',
                 'tanggal_lahir' => 'required|date',
                 'no_hp' => 'required|numeric|digits_between:10,12',
                 'alamat' => 'required',
@@ -70,7 +71,7 @@ class UserController extends Controller
                 'email.email' => 'Email harus berupa email',
                 'email.unique' => 'Email sudah terdaftar',
                 'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
-                'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+                'id_kulit.required' => 'Jenis Kulit tidak boleh kosong',
                 'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
                 'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                 'no_hp.required' => 'No HP tidak boleh kosong',
@@ -92,7 +93,7 @@ class UserController extends Controller
         $user->image = $fileNameImage;
         $user->email = $request->email;
         $user->jenis_kelamin = $request->jenis_kelamin;
-        $user->jenis_kulit = $request->jenis_kulit;
+        $user->id_kulit = $request->id_kulit;
         $user->tanggal_lahir = $request->tanggal_lahir;
         $user->no_hp = $request->no_hp;
         $user->alamat = $request->alamat;
@@ -114,7 +115,7 @@ class UserController extends Controller
                     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                     'email' => 'required|email|unique:tb_user,email,' . $id,
                     'jenis_kelamin' => 'required',
-                    'jenis_kulit' => 'required',
+                    'id_kulit' => 'required',
                     'tanggal_lahir' => 'required|date',
                     'no_hp' => 'required|numeric|digits_between:10,12',
                     'alamat' => 'required',
@@ -135,7 +136,7 @@ class UserController extends Controller
                     'email.email' => 'Email harus berupa email',
                     'email.unique' => 'Email sudah terdaftar',
                     'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
-                    'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+                    'id_kulit.required' => 'Jenis Kulit tidak boleh kosong',
                     'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
                     'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                     'no_hp.required' => 'No HP tidak boleh kosong',
@@ -157,7 +158,7 @@ class UserController extends Controller
             $user->image = $fileNameImage;
             $user->email = $request->email;
             $user->jenis_kelamin = $request->jenis_kelamin;
-            $user->jenis_kulit = $request->jenis_kulit;
+            $user->id_kulit = $request->id_kulit;
             $user->tanggal_lahir = $request->tanggal_lahir;
             $user->no_hp = $request->no_hp;
             $user->alamat = $request->alamat;
@@ -171,7 +172,7 @@ class UserController extends Controller
                     'name' => 'required',
                     'email' => 'required|email|unique:tb_user,email,' . $id,
                     'jenis_kelamin' => 'required',
-                    'jenis_kulit' => 'required',
+                    'id_kulit' => 'required',
                     'tanggal_lahir' => 'required|date',
                     'no_hp' => 'required|numeric|digits_between:10,12',
                     'alamat' => 'required',
@@ -188,7 +189,7 @@ class UserController extends Controller
                     'email.email' => 'Email harus berupa email',
                     'email.unique' => 'Email sudah terdaftar',
                     'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
-                    'jenis_kulit.required' => 'Jenis Kulit tidak boleh kosong',
+                    'id_kulit.required' => 'Jenis Kulit tidak boleh kosong',
                     'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
                     'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal',
                     'no_hp.required' => 'No HP tidak boleh kosong',
@@ -203,7 +204,7 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->jenis_kelamin = $request->jenis_kelamin;
-            $user->jenis_kulit = $request->jenis_kulit;
+            $user->id_kulit = $request->id_kulit;
             $user->tanggal_lahir = $request->tanggal_lahir;
             $user->no_hp = $request->no_hp;
             $user->alamat = $request->alamat;

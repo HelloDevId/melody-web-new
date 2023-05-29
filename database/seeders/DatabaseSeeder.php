@@ -357,17 +357,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Antrian::create([
-            'id_user' => 2,
+            'id_user' => 1,
             'no_antrian' => 1,
             'tanggal' => date('Y-m-d'),
             'status' => 'Selesai',
             'id_keluhan' => 1,
-            'detail_keluhan' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'detail_keluhan' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum keluhan.',
         ]);
 
         Konsultasi::create([
             'id_antrian' => 1,
-            'hasil_konsultasi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'hasil_konsultasi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum konsultasi.',
         ]);
     }
 }

@@ -50,6 +50,19 @@
                      <i class="icon-pencil menu-icon"></i><span class="nav-text">Post</span>
                  </a>
              </li>
+             <li>
+                 <a href="/kulit" aria-expanded="false">
+                     <i class="icon-note menu-icon menu-icon"></i><span class="nav-text">Kulit</span>
+                 </a>
+             </li>
+
+             <li>
+                 <a href="/keluhan" aria-expanded="false">
+                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Keluhan</span>
+                 </a>
+             </li>
+
+
              {{-- <li class="mega-menu mega-menu-sm">
                  <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                      <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>

@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KonsultasiController;
+use App\Http\Controllers\KulitController;
+use App\Http\Controllers\KeluhanController;
 
 
 
@@ -47,6 +49,15 @@ Route::get('/product-restore', [ProductController::class, 'restoreproduct'])->mi
 route::get('/product-pulihkan/{id}', [ProductController::class, 'restore'])->middleware('IsLogin');
 Route::post('/product-force-delete', [ProductController::class, 'deleteproduct'])->middleware('IsLogin');
 
+Route::get('/keluhan', [KeluhanController::class, 'index'])->middleware('IsLogin');
+Route::post('/keluhan-add', [KeluhanController::class, 'store'])->middleware('IsLogin');
+Route::put('/keluhan-edit/{id}', [KeluhanController::class, 'update'])->middleware('IsLogin');
+Route::delete('/keluhan-delete/{id}', [KeluhanController::class, 'destroy'])->middleware('IsLogin');
+
+Route::get('/kulit', [KulitController::class, 'index'])->middleware('IsLogin');
+Route::post('/kulit-add', [KulitController::class, 'store'])->middleware('IsLogin');
+Route::put('/kulit-edit/{id}', [KulitController::class, 'update'])->middleware('IsLogin');
+Route::delete('/kulit-delete/{id}', [KulitController::class, 'destroy'])->middleware('IsLogin');
 
 Route::get('/kategori', [KategoriController::class, 'index'])->middleware('IsLogin');
 Route::post('/kategori-add', [KategoriController::class, 'store'])->middleware('IsLogin');

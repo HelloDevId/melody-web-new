@@ -19,9 +19,9 @@ class ApiAuthController extends Controller
             'email' => 'required|string|',
             'password' => 'required|string',
             'jenis_kelamin' => 'required',
-            'jenis_kulit' => 'required',
             'tanggal_lahir' => 'required',
             'no_hp' => 'required',
+            'id_kulit' => 'required',
             'alamat' => 'required'
         ]);
         $cekemail = User::where('email', $data['email'])->first();
@@ -37,16 +37,16 @@ class ApiAuthController extends Controller
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'jenis_kelamin' => $data['jenis_kelamin'],
-                'jenis_kulit' => $data['jenis_kulit'],
                 'id_role' => $idrole->id,
                 'tanggal_lahir' => $data['tanggal_lahir'],
                 'no_hp' => $data['no_hp'],
+                'id_kulit' => $data['id_kulit'],
                 'alamat' => $data['alamat']
             ]);
-            $res = [
+            return response()->json([
+                'message' => "Berhasil Register",
                 'user' => $user,
-            ];
-            return response($res, 201);
+            ], 200);
         }
     }
     //login
@@ -80,10 +80,10 @@ class ApiAuthController extends Controller
     //get data user
     public function userlogin()
     {
-        $user = auth()->user();
+        $user = request()->user();
         $res = [
             'message' => "success",
-            'user' => $user,
+            'user' => $user->load('kulit'),
         ];
         return response($res, 201);
     }
@@ -116,9 +116,8 @@ class ApiAuthController extends Controller
 
         $data = $request->validate([
             'name' => 'required|string',
-            'image' => 'required|string',
-            'jenis_kelamin' => 'required|string',
-            'jenis_kulit' => 'required|string',
+            'email' => 'required|string',
+            'id_kulit' => 'required|string',
             'tanggal_lahir' => 'required|string',
             'no_hp' => 'required|string',
             'alamat' => 'required|string',

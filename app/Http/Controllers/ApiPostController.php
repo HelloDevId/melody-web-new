@@ -10,9 +10,7 @@ class ApiPostController extends Controller
 {
     public function getDataByUserId()
     {
-        $userId = auth()->id();
-        $posts = Post::where('id_user', $userId)
-                    ->whereNull('deleted_at')
+        $posts = Post::whereNull('deleted_at')
                     ->orderByDesc('id')
                     ->get();
 

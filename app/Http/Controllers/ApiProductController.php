@@ -10,12 +10,12 @@ class ApiProductController extends Controller
 {
     public function index(Request $request)
     {
-        $perPage = $request->query('perPage', 7); // Ambil nilai per halaman dari parameter query "perPage", default 20
-        $page = $request->query('page', 1); // Ambil nomor halaman dari parameter query "page", default 1
+        $perPage = $request->query('perPage', 7);
+        $page = $request->query('page', 1);
 
         $products = Product::where('deleted_at', null)
             ->orderByDesc('id')
-            ->paginate($perPage, ['*'], 'page', $page); // Menggunakan metode paginate() untuk melakukan paginasi
+            ->paginate($perPage, ['*'], 'page', $page); 
 
         return response()->json([
             'message' => 'success',

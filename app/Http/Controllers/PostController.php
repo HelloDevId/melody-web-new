@@ -61,7 +61,7 @@ class PostController extends Controller
             'slug' => $request->slug,
             'image' => $imageName,
             'content' => $request->content,
-            'id_user' => '1',
+            'id_user' => '2',
         ]);
 
         return redirect()->intended('/post')->with('create', 'berhasil create');
@@ -99,7 +99,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->content = $request->content;
-        $post->id_user = '1';
+        $post->id_user = '2';
         $post->save();
 
         return redirect()->intended('/post')->with('update', 'berhasil update');

@@ -149,7 +149,7 @@
                      </div>
                  </li>
                  --}}
-                 <li class="icons dropdown d-none d-md-flex">
+                 {{-- <li class="icons dropdown d-none d-md-flex">
                      <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
                          <span>{{ Auth::User()->name }}</span><i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                      </a>
@@ -166,12 +166,11 @@
                              </ul>
                          </div>
                      </div>
-                 </li>
-                 {{-- <li class="icons dropdown">
+                 </li> --}}
+                 <li class="icons dropdown">
                      <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                         <span class="activity active"></span>
-                         <img src="{{ asset('foto/user/' . Auth::User()->image) }}" height="40" width="40"
-                             alt="">
+                         <span>{{ Auth::User()->name }} </span><i class="fa fa-angle-down f-s-14"
+                             aria-hidden="true"></i>
                      </div>
                      <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                          <div class="dropdown-content-body">
@@ -186,7 +185,7 @@
                              </ul>
                          </div>
                      </div>
-                 </li> --}}
+                 </li>
              </ul>
          </div>
      </div>

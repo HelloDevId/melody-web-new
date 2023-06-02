@@ -16,7 +16,7 @@
                             <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
                                 <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
                                     <span class="ltext-101 cl2 respon2">
-                                        Women Collection 2018
+                                        Women Collection 2023
                                     </span>
                                 </div>
 
@@ -41,45 +41,18 @@
                             <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
                                 <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
                                     <span class="ltext-101 cl2 respon2">
-                                        Men New-Season
+                                        Glow Up Now
                                     </span>
                                 </div>
 
                                 <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn"
                                     data-delay="800">
                                     <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-                                        Jackets & Coats
+                                        New Season
                                     </h2>
                                 </div>
 
                                 <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-                                    <a href="product.html"
-                                        class="flex-c-m stext-101 cl0 size-101 bg10 bor1 hov-btn4 p-lr-15 trans-04">
-                                        Shop Now
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick1" style="background-image: url({{ asset('landing/images/slide-03.jpg') }});">
-                        <div class="container h-full">
-                            <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                                <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft"
-                                    data-delay="0">
-                                    <span class="ltext-101 cl2 respon2">
-                                        Men Collection 2018
-                                    </span>
-                                </div>
-
-                                <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight"
-                                    data-delay="800">
-                                    <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-                                        New arrivals
-                                    </h2>
-                                </div>
-
-                                <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
                                     <a href="product.html"
                                         class="flex-c-m stext-101 cl0 size-101 bg10 bor1 hov-btn4 p-lr-15 trans-04">
                                         Shop Now
@@ -101,62 +74,72 @@
         </section>
 
 
+       
+            <section class="sec-relate-product bg0 p-t-45 p-b-105">
+                <div class="container">
+                    <div class="p-b-45">
+                        <h3 class="ltext-103 cl5">
+                            Top Product
+                        </h3>
+                    </div>
 
-        <section class="sec-relate-product bg0 p-t-45 p-b-105">
-            <div class="container">
-                <div class="p-b-45">
-                    <h3 class="ltext-103 cl5">
-                        Top Product
-                    </h3>
-                </div>
+                    <!-- Slide2 -->
 
-                <div class="wrap-slick2">
-                    <div class="slick2">
-                        @foreach ($topproduct as $datanya)
-                            <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-pic hov-img0">
-                                        <img src="{{ asset('foto/product/' . $datanya['image']) }}" alt="IMG-PRODUCT">
+                    <div class="wrap-slick2">
+                        <div class="slick2">
+                            @foreach ($topproduct as $datanya)
+                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+                                    <!-- Block2 -->
+                                    <div class="block2">
+                                        <div class="block2-pic hov-img0">
+                                            <img src="{{ asset('foto/product/' . $datanya['image']) }}" alt="IMG-PRODUCT">
 
-                                        <a href="/detail-product/{{ $datanya->id }}"
-                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn5 p-lr-15 trans-04 js-show-modal1">
-                                            View
-                                        </a>
-                                    </div>
-
-                                    <div class="block2-txt flex-w flex-t p-t-14">
-                                        <div class="block2-txt-child1 flex-col-l ">
                                             <a href="/detail-product/{{ $datanya->id }}"
-                                                class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                {{ $datanya->name }}
+                                                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn5 p-lr-15 trans-04 js-show-modal1">
+                                                View
                                             </a>
+                                        </div>
 
-                                            <span class="stext-105 cl3">
-                                                Rp. {{ number_format($datanya->price) }} /
-                                                {{ $datanya->kategori->name }}
-                                                /
-                                                {{ $datanya->jumlah_terjual }} Jumlah
-                                            </span>
+                                        <div class="block2-txt flex-w flex-t p-t-14">
+                                            <div class="block2-txt-child1 flex-col-l ">
+                                                <a href="/detail-product/{{ $datanya->id }}"
+                                                    class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                    {{ $datanya->name }}
+                                                </a>
+
+                                                <span class="stext-105 cl3">
+                                                    Rp. {{ number_format($datanya->price) }} /
+                                                    {{ $datanya->kategori->name }}
+                                                    /
+                                                    {{ $datanya->jumlah_terjual }} Jumlah
+                                                </span>
+                                            </div>
+
+                                            {{-- <div class="block2-txt-child2 flex-r p-t-3">
+                                                <a href="#"
+                                                    class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                                    <img class="icon-heart1 dis-block trans-04"
+                                                        src="{{ asset('landing/images/icons/icon-heart-01.png') }}"
+                                                        alt="ICON">
+                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l"
+                                                        src="{{ asset('landing/images/icons/icon-heart-02.png') }}"
+                                                        alt="ICON">
+                                                </a>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
-
-                <!-- Slide2 -->
-            </div>
-        </section>
-
-
-
+            </section>
+    
 
 
         <!-- Title page -->
         <section class="bg-img1 txt-center p-lr-15 p-tb-92"
-            style="background-image: url('{{ asset('landing/images/bg-01.jpg') }}');">
+            style="background-image: url('{{ asset('landing/images/bg-03.jpg') }}');">
             <h2 class="ltext-105 cl0 txt-center">
                 Product
             </h2>
@@ -226,7 +209,7 @@
         </section>
         <!-- Title page -->
         <section class="bg-img1 txt-center p-lr-15 p-tb-92"
-            style="background-image: url('{{ asset('landing/images/bg-01.jpg') }}');">
+            style="background-image: url('{{ asset('landing/images/bg-02.jpg') }}');">
             <h2 class="ltext-105 cl0 txt-center">
                 About
             </h2>
@@ -371,19 +354,23 @@
                     </div> --}}
                     <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
                         <div class="flex-w w-full p-b-42">
+                           
+                           <div class="flex-w w-full">
                             <span class="fs-18 cl5 txt-center size-211">
-                                <span class="fa fa-facebook"></span>
+                                <span class="fa fa-whatsapp"></span>
                             </span>
 
                             <div class="size-212 p-t-2">
                                 <span class="mtext-110 cl2">
-                                    Facebook
+                                    Whatsapp
                                 </span>
 
                                 <p class="stext-115 cl13 size-213 p-t-18">
-                                    Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                                   <a href="https://api.whatsapp.com/send/?phone=6285335688688&text&type=phone_number&app_absent=0">+62 853-3568-8688</a> 
                                 </p>
                             </div>
+                        </div>
+
                         </div>
 
                         <div class="flex-w w-full p-b-42">
@@ -397,26 +384,12 @@
                                 </span>
 
                                 <p class="stext-115 cl13 size-213 p-t-18">
-                                    +1 800 1236879
+                                   <a href="https://www.instagram.com/melodybeauty29/">melodybeauty29</a> 
                                 </p>
                             </div>
                         </div>
 
-                        <div class="flex-w w-full">
-                            <span class="fs-18 cl5 txt-center size-211">
-                                <span class="fa fa-youtube"></span>
-                            </span>
-
-                            <div class="size-212 p-t-2">
-                                <span class="mtext-110 cl2">
-                                    Youtube
-                                </span>
-
-                                <p class="stext-115 cl13 size-213 p-t-18">
-                                    contact@example.com
-                                </p>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
@@ -431,52 +404,19 @@
                                 </span>
 
                                 <p class="stext-115 cl13 size-213 p-t-18">
-                                    Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                                  <a href="https://goo.gl/maps/Se1GDpDWP2yfeXQF9">Jl. Mastrip Ruko mastrp Square No.72, Krajan Barat, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</a>  
                                 </p>
                             </div>
                         </div>
 
-                        <div class="flex-w w-full p-b-42">
-                            <span class="fs-18 cl5 txt-center size-211">
-                                <span class="lnr lnr-phone-handset"></span>
-                            </span>
+                       
 
-                            <div class="size-212 p-t-2">
-                                <span class="mtext-110 cl2">
-                                    Lets Talk
-                                </span>
-
-                                <p class="stext-115 cl13 size-213 p-t-18">
-                                    +1 800 1236879
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex-w w-full">
-                            <span class="fs-18 cl5 txt-center size-211">
-                                <span class="lnr lnr-envelope"></span>
-                            </span>
-
-                            <div class="size-212 p-t-2">
-                                <span class="mtext-110 cl2">
-                                    Sale Support
-                                </span>
-
-                                <p class="stext-115 cl13 size-213 p-t-18">
-                                    contact@example.com
-                                </p>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
 
 
-        <!-- Map -->
-        <div class="map">
-            <div class="size-303" id="google_map" data-map-x="-8.1590526" data-map-y="113.7200901"
-                data-pin="{{ asset('landing/images/icons/pin.png') }}" data-scrollwhell="0" data-draggable="1"
-                data-zoom="11"></div>
-        </div>
+       
     @endsection

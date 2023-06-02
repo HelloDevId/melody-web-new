@@ -123,15 +123,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kategori::create([
-            'name' => 'Wajah',
+            'name' => 'Skincare',
         ]);
 
         Kategori::create([
-            'name' => 'Rambut',
+            'name' => 'Haircare',
         ]);
 
         Kategori::create([
-            'name' => 'Tubuh',
+            'name' => 'Bodycare',
         ]);
 
         Product::create([

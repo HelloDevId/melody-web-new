@@ -37,7 +37,7 @@ class ApiAuthController extends Controller
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'jenis_kelamin' => $data['jenis_kelamin'],
-                'id_role' => $idrole->id,
+                'id_role' => '2',
                 'tanggal_lahir' => $data['tanggal_lahir'],
                 'no_hp' => $data['no_hp'],
                 'id_kulit' => $data['id_kulit'],

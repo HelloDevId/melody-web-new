@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('tb_konsultasi', function (Blueprint $table) {
             $table->id();
-            $table->string('hasil_konsultasi');
+            $table->longText('hasil_konsultasi');
             $table->timestamps();
         });
     }

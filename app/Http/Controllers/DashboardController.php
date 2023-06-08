@@ -16,6 +16,11 @@ class DashboardController extends Controller
     {
 
         $visitors = Visitors::select(DB::raw("DATE_FORMAT(tanggal, '%Y-%m-%d') as date"), DB::raw('count(*) as total'))
+            ->where(
+                'tanggal',
+                '>=',
+                date('Y-m-d', strtotime('-7 days'))
+            )
             ->groupBy('date')
             ->orderBy('date')
             ->get();
@@ -25,9 +30,14 @@ class DashboardController extends Controller
 
         $konsultasi = Antrian::select(DB::raw("DATE_FORMAT(tanggal, '%Y-%m-%d') as date"), DB::raw('count(*) as total'))
             ->where('status', 'selesai')
+            ->where(
+                'tanggal',
+                '>=',
+                date('Y-m-d', strtotime('-7 days'))
+            )
             ->groupBy('date')
             ->orderBy('date')
-            ->get();
+            ->get();    
 
         $labelskonsultasi = $konsultasi->pluck('date');
         $datakonsultasi = $konsultasi->pluck('total');
